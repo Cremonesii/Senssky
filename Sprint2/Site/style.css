@@ -9,9 +9,7 @@ body {
     width: 100%;
     height: 945px;
     font-family: "Poppins", sans-serif;
-    background: linear-gradient(-45deg, #032030, #022B42, #003554, #004D74, #006494, #006DA4);
-    background-size: 400% 400%;
-    animation: Animacao 15s ease infinite;
+    background-image: url(fundo.jpg);
 }
 
 #form {
@@ -21,22 +19,33 @@ body {
     transform: translate(-50%, -50%);
     background: white;
     border-radius: 10px;
-    padding: 60px;
+    padding: 70px;
     width: 18%;
     align-items: center;
-    color: #032030;
+    color: #6eb2dc;
+}
+.logo img{
+    width:70%;
+}
+.logo{
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .title {
     font-size: 30px;
-    color: #032030;
+    color: #6eb2dc;
     margin-bottom: 10%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .input {
     min-width: 200px;
     border-radius: 22px;
-    border: 2px #D5DEEF solid;
+    border: 2px #6eb2dc solid;
     padding: 5px;
     margin: 0px 0px 12px -5;
 }
@@ -44,9 +53,6 @@ body {
 .input i {
     font-size: 1.2em;
     padding: 5px;
-    /* background: linear-gradient(45deg, #032030, #022B42, #003554);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
 }
 
 .input input {
@@ -67,7 +73,7 @@ body {
 
 #button button {
     font-family: "Poppins", sans-serif;
-    background: linear-gradient(45deg, #032030, #022B42, #003554);
+    background: #6eb2dc;
     width: 65%;
     height: 40px;
     border: none;
@@ -80,18 +86,42 @@ body {
 
 
 #button button:hover {
-    background: linear-gradient(45deg, #004D74, #006494, #006DA4);
+    background:#6eb2dc;
     animation: Animacao 4s ease infinite;
 }
+#button2 {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+.esqueceusenha{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.esqueceusenha span{
+    display: flex;
+    justify-content: center;
+    
+}
 
-@keyframes Animacao {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0% 50%
-    }
+#button2 button {
+    font-family: "Poppins", sans-serif;
+    background: #6eb2dc;
+    width: 40%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+#button2 button:hover {
+    background:#6eb2dc;
+    animation: Animacao 4s ease infinite;
 }
