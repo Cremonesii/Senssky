@@ -9,27 +9,28 @@
 </head>
 
 <body>
-    <div id="form">
-        <div class="logo">
-            <img src="logo.png">
+    <div id="form"> <!-- DIV GERAL (DO FORMULARIO) -->
+        <div class="logo"> <!-- DIV LOGO (DO FORMULARIO) -->
+            <img src="img/logo.png">
         </div>
-        <form action="">
+        <form action=""> <!-- FORMULARIO -->
             <h2 class="title">Login</h2>
             <label for="email">Email</label>
             <div class="input">
-                <i class="fa-solid fa-envelope"></i>
+                <i class="fa-solid fa-envelope"></i> <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
                 <input type="text" id="iptemail" placeholder="Email">
             </div>
             <label for="senha">Senha</label>
             <div class="input">
-                <i class="fa-solid fa-lock"></i>
+                <i class="fa-solid fa-lock"></i> <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
                 <input type="text" id="iptsenha" placeholder="Senha">
             </div>
 
-            <div id="button2">
+            <div id="button">
                 <button type="submit">Acessar</button>
                 <div class="esqueceusenha">
-                    <span>Esqueceu sua senha?</span>
+                    <span><a href="esqueceu_senha.html" class="href">Esqueceu sua senha?</a></span> <!-- HREF = AO CLICAR VOCÊ IRA PARA OUTRA PAGINA -->
+                    
                 </div>
             </div>
 
@@ -40,4 +41,5 @@
 
 </html>
 
+<!-- SCRIPT USADO PARA IMPORTAR OS "ICONS" TIRADO DE UM SITE NO CASO https://fontawesome.com/icons -->
 <script src="https://kit.fontawesome.com/c2c1a07a20.js" crossorigin="anonymous"></script>

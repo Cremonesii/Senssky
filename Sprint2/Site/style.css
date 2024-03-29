@@ -1,3 +1,4 @@
+/* ================== @IMPORT URL = "SCRIPT" PARA COLOCAR UMA FONTE ================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
@@ -9,8 +10,13 @@ body {
     width: 100%;
     height: 945px;
     font-family: "Poppins", sans-serif;
-    background-image: url(fundo.jpg);
+    /* ================== ESSAS ULTIMAS 4 LINHAS É PARA FAZER UMA ANIMAÇÃO DE GRADIENTE (MAIS DE UMA COR) ================== */
+    transition: all 0.5s ease;
+    background: linear-gradient(-45deg, #032030, #022B42, #003554, #004D74, #006494, #006DA4); /* */
+    background-size: 400% 400%;
+    animation: Animacao 10s ease infinite;
 }
+
 
 #form {
     position: relative;
@@ -22,7 +28,7 @@ body {
     padding: 70px;
     width: 18%;
     align-items: center;
-    color: #6eb2dc;
+    color: #032030;
 }
 .logo img{
     width:70%;
@@ -35,7 +41,7 @@ body {
 
 .title {
     font-size: 30px;
-    color: #6eb2dc;
+    color: #032030;
     margin-bottom: 10%;
     align-items: center;
     display: flex;
@@ -45,13 +51,13 @@ body {
 .input {
     min-width: 200px;
     border-radius: 22px;
-    border: 2px #6eb2dc solid;
+    border: 2px #032030 solid;
     padding: 5px;
-    margin: 0px 0px 12px -5;
+    margin: 0px 0px 12px -5; 
 }
 
 .input i {
-    font-size: 1.2em;
+    font-size: 1.2em; /* ================== FORMATO DE TAMANHO DIFERENTE DE PX ================== */
     padding: 5px;
 }
 
@@ -73,33 +79,28 @@ body {
 
 #button button {
     font-family: "Poppins", sans-serif;
-    background: #6eb2dc;
+    background: #032030;
     width: 65%;
     height: 40px;
     border: none;
     border-radius: 10px;
     color: white;
     font-size: 18px;
+    /* ================== OUTLINE NONE É LITERALMENTE PARA TIRAR A LINHA EXTERNA DO BUTTON (BTN)
+    E CURSOR POINTER É PARA QUANDO VOCÊ COLOCAR O MOUSE EM CIMA DO BTN APARECER ALGUMA OUTRA COISINHA ================== */
     outline: none;
     cursor: pointer;
 }
 
 
-#button button:hover {
-    background:#6eb2dc;
+#button button:hover {/* ================== HOVER = QUANDO O MOUSE PASSA EM CIMA ================== */
+    background: linear-gradient(-45deg, #004D74, #006494, #006DA4);
     animation: Animacao 4s ease infinite;
 }
-#button2 {
-    margin-top: 10px;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-}
+
 .esqueceusenha{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: relative;
+    margin-top: 10px;
 }
 .esqueceusenha span{
     display: flex;
@@ -107,21 +108,20 @@ body {
     
 }
 
-#button2 button {
-    font-family: "Poppins", sans-serif;
-    background: #6eb2dc;
-    width: 40%;
-    height: 40px;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: 18px;
-    outline: none;
-    cursor: pointer;
+.href {
+
+    color: black;
+
 }
-
-
-#button2 button:hover {
-    background:#6eb2dc;
-    animation: Animacao 4s ease infinite;
+/* ================== KEYFRAME PARA USAR AS ANIMAÇÕES CRIADAS A CIMA ================== */
+@keyframes Animacao {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
 }
