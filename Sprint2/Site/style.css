@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 945px;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(45deg, #032030, #022B42, #003554);
+    background-repeat: no-repeat;
+}
+
+body:hover {
+    transform: translateY(-20px);
+    background: linear-gradient(45deg, #F0F3FA, #8AAEE0, #638ECB);
+    transition: all 0.5s ease;
+}
+
+#form {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    padding: 60px;
+    width: 18%;
+    align-items: center;
+    color: #032030;
+}
+
+.title {
+    font-size: 30px;
+    color: #032030;
+    margin-bottom: 10%;
+}
+
+.input {
+    min-width: 200px;
+    border-radius: 22px;
+    border: 2px #D5DEEF solid;
+    padding: 5px;
+    margin: 0px 0px 12px -5;
+}
+
+.input i {
+    font-size: 1.2em;
+    padding: 5px;
+    /* background: linear-gradient(45deg, #032030, #022B42, #003554);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+.input input {
+    width: 80%;
+    border: none;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+    transform: translateY(10%);
+    color: #032030;
+    font-size: 20px;
+}
+
+#button {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+#button button {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(45deg, #032030, #022B42, #003554);
+    width: 65%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+#button button:hover {
+    transition: 500ms linear;
+    background: linear-gradient(45deg, #F0F3FA, #8AAEE0, #638ECB);
+}
