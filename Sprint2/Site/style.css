@@ -9,14 +9,9 @@ body {
     width: 100%;
     height: 945px;
     font-family: "Poppins", sans-serif;
-    background: linear-gradient(45deg, #032030, #022B42, #003554);
-    background-repeat: no-repeat;
-}
-
-body:hover {
-    transform: translateY(-20px);
-    background: linear-gradient(45deg, #F0F3FA, #8AAEE0, #638ECB);
-    transition: all 0.5s ease;
+    background: linear-gradient(-45deg, #032030, #022B42, #003554, #004D74, #006494, #006DA4);
+    background-size: 400% 400%;
+    animation: Animacao 15s ease infinite;
 }
 
 #form {
@@ -85,6 +80,18 @@ body:hover {
 
 
 #button button:hover {
-    transition: 500ms linear;
-    background: linear-gradient(45deg, #F0F3FA, #8AAEE0, #638ECB);
+    background: linear-gradient(45deg, #004D74, #006494, #006DA4);
+    animation: Animacao 4s ease infinite;
+}
+
+@keyframes Animacao {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
 }
