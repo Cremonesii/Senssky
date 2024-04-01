@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana;
+    background-color: white;
+}
+
+.header{
+border-bottom: 3px solid #0059ff;
+}
+
+.container{
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+.header .container {
+    justify-content: space-between;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    width: 300px;
+    justify-content: space-between;
+    color: black;
+    align-items: center;
+}
