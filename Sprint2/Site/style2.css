@@ -78,6 +78,10 @@ img{
     flex-direction: row;
     justify-content: space-between;
 }
+.corpo{
+    width: 100%;
+    height: 100%;
+}
 @keyframes Animacao {
     0% {
         background-position: 0% 50%
