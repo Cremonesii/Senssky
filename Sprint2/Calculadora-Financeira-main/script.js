@@ -36,7 +36,7 @@ function calculo() {
         //Custos Gerais
         var custoTotalAntes = valorCiclo - (valorManutencao + valorFuncionario); //Custos sem os sensores
         var custoTotalDepois = lucroCicloPorAno - (manutencaoReduz + funcionarioReduz + custoInstall); //Gastos com a implementação dos sensores
-        var lucro = custoTotalAntes - custoTotalDepois; //Comparação entre os valores sem e com os sensores
+        var lucro = (custoTotalAntes - custoTotalDepois) * -1 ; //Comparação entre os valores sem e com os sensores
         var porcentagemLucro = (100 * lucro / custoTotalAntes).toFixed(2); //Porcentagem do lucro
 
         var novoValorPorCicloAumento = valorCiclo * 1.1 / qtdCiclo;
