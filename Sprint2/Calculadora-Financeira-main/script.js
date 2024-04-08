@@ -40,7 +40,7 @@ function calculo() {
         var porcentagemLucro = (100 * lucro / custoTotalAntes).toFixed(2); //Porcentagem do lucro
 
         var novoValorPorCicloAumento = valorCiclo * 1.1 / qtdCiclo;
-        var lucroCicloPorAnoAumento = novoValorPorCicloAumento * qtdCiclo; 
+        var lucroCicloPorAnoAumento = novoValorPorCicloAumento * qtdCiclo * (-1); 
 
         /* ======================== CONVERTER OS VALORES PARA A FORMATAÇÃO DO REAL ======================== */
 
