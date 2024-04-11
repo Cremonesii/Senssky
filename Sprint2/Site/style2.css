@@ -155,6 +155,9 @@ padding: 0;
     align-items: start;
     text-align: start;
     display: flex;
+    padding: 10px;
+    border-radius: 5%;
+    box-shadow: 0 0 10px rgb(217, 216, 216);
     flex-direction: column;
 }
 
