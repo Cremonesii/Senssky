@@ -116,11 +116,15 @@ img{
 
 .card img {
     width: 100px;
-    height: 87px;
+    height: 100px;
 }
 
 .card {
-    width: 200px;
+    background-color: rgb(224, 224, 224);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    width: 250px;
+    padding: 10px;
+    border-radius: 5px;
     align-items: start;
     text-align: start;
     display: flex;
