@@ -152,13 +152,18 @@ padding: 0;
 
 .card {
     width: 200px;
-    align-items: start;
-    text-align: start;
+    align-items: center;
+    text-align: center;
     display: flex;
-    padding: 10px;
+    padding: 60px;
+    font-size: 18px;
     border-radius: 5%;
     box-shadow: 0 0 10px rgb(217, 216, 216);
     flex-direction: column;
+}
+
+.card p {
+    padding-top: 10px;
 }
 
 .sobre{
