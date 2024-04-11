@@ -52,18 +52,17 @@
         var validaçãoEmail = 0;
         var validaçãoSenha = 0;
 
-        if (email != 'fernando.brandao@gmail.com') {
-            validaçãoEmail = false;
-            alert('Esse não é um enderço de email válido! por favor insira os dados corretos!')
-        } else {
+        if (email == 'fernando.brandao@sptech.school' && (senha == 'brandao')) {
             validaçãoEmail = true;
-        }
-
-        if (senha == 'brandao') {
             validaçãoSenha = true;
-        } else {
+        } else if (email == 'julia.lima@sptech.school' && (senha == 'julia')) {
+            validaçãoEmail = true;
+            validaçãoSenha = true;
+        }else  {
             validaçãoSenha = false;
+            alert('Esse não é um enderço de email válido! por favor insira os dados corretos!');
         }
+        
 
         if (validaçãoEmail == true && validaçãoSenha == true) {
             location.href = 'dashboard.html' //O LOCATION.HREF SERVE PARA DIRECIONAR VOCÊ A ALGUMA PAGINA APÓS A VALIDAÇÃO DEFINIDA
