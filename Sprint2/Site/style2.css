@@ -16,7 +16,6 @@ body {
     animation: Animacao 10s ease infinite;
 }
 
-
 .header{
 display: flex;
 justify-content: center;
@@ -39,6 +38,7 @@ img{
     width: 190px;
     height: fit-content;
 }
+
 /* .texto{
     padding: 30px;
     display: flex;
@@ -74,11 +74,13 @@ img{
     font-size: 25px;
     align-items: center;
 }
+
 .navbar #ul{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
 .corpo{
     width: 100%;
     height: 100%;
@@ -90,6 +92,7 @@ img{
     flex-direction: column;
     color: white;
 }
+
 .logo{
     display: flex;
     flex-direction: column;
@@ -97,12 +100,33 @@ img{
     height: auto;
     padding: 5%;
 }
+
 .corpo2{
     background-color: white;
     font-family: "Poppins", sans-serif;
     text-align: center;
     padding: 5%;
 }
+
+.servicos {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.card img {
+    width: 100px;
+    height: 87px;
+}
+
+.card {
+    width: 200px;
+    align-items: start;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+}
+
 .sobre{
     font-size: 75px;
 }
@@ -118,7 +142,3 @@ img{
         background-position: 0% 50%
     }
 }
-
-
-
-
