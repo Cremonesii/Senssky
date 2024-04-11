@@ -18,19 +18,20 @@
             <label for="email">Email</label>
             <div class="input">
                 <i class="fa-solid fa-envelope"></i> <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
-                <input type="text" id="iptemail" placeholder="Email">
+                <input type="text" id="input_iptemail" placeholder="Email">
             </div>
             <label for="senha">Senha</label>
             <div class="input">
                 <i class="fa-solid fa-lock"></i> <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
-                <input type="password" id="iptsenha" placeholder="Senha">
+                <input type="password" id="input_iptsenha" placeholder="Senha">
             </div>
 
             <div id="button">
-                <button type="submit">Acessar</button>
-                <div class="esqueceusenha">
-                    <span><a href="esqueceu_senha.html" class="href">Esqueceu sua senha?</a></span> <!-- HREF = AO CLICAR VOCÊ IRA PARA OUTRA PAGINA -->
-                    
+                <button onclick="redirecionar(); return false" type="submit">Acessar</button>
+                <div class="esqueceusenha"> <!-- O 'RETURN FALSE' SERVE PARA INTERROMPER O ENVIO PADRAO DO FORMULÁRIO E ESPERAR UMA VALIDAÇÃO QUE MUDE O SEU VALOR "FALSE" PARA "TRUE"  -->
+                    <span><a href="esqueceu_senha.html" class="href">Esqueceu sua senha?</a></span>
+                    <!-- HREF = AO CLICAR VOCÊ IRA PARA OUTRA PAGINA -->
+
                 </div>
             </div>
 
@@ -43,3 +44,29 @@
 
 <!-- SCRIPT USADO PARA IMPORTAR OS "ICONS" TIRADO DE UM SITE NO CASO https://fontawesome.com/icons -->
 <script src="https://kit.fontawesome.com/c2c1a07a20.js" crossorigin="anonymous"></script>
+
+<script>
+    function redirecionar() {
+        var email = input_iptemail.value;
+        var senha = input_iptsenha.value;
+        var validaçãoEmail = 0;
+        var validaçãoSenha = 0;
+
+        if (email != 'fernando.brandao@gmail.com') {
+            validaçãoEmail = false;
+            alert('Esse não é um enderço de email válido! por favor insira os dados corretos!')
+        } else {
+            validaçãoEmail = true;
+        }
+
+        if (senha == 'brandao') {
+            validaçãoSenha = true;
+        } else {
+            validaçãoSenha = false;
+        }
+
+        if (validaçãoEmail == true && validaçãoSenha == true) {
+            location.href = 'dashboard.html' //O LOCATION.HREF SERVE PARA DIRECIONAR VOCÊ A ALGUMA PAGINA APÓS A VALIDAÇÃO DEFINIDA
+        }
+    }
+</script>
