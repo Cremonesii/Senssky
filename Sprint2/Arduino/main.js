@@ -12,7 +12,7 @@ const SERVIDOR_PORTA = 3300;
 // Habilita ou desabilita a inserção de dados no banco de dados
 // false -> nao insere
 // true -> insere
-const HABILITAR_OPERACAO_INSERIR = false;
+const HABILITAR_OPERACAO_INSERIR = true;
 
 // Função para comunicação serial
 const serial = async (
@@ -30,9 +30,9 @@ const serial = async (
             // altere!
             // Credenciais do banco de dados
             host: 'localhost',
-            user: 'USUARIO_DO_BANCO_LOCAL',
-            password: 'SENHA_DO_BANCO_LOCAL',
-            database: 'DATABASE_LOCAL',
+            user: 'root',
+            password: '1025serM',
+            database: 'senssky',
             port: 3306
         }
     ).promise();
@@ -50,6 +50,7 @@ const serial = async (
             path: portaArduino.path,
             baudRate: SERIAL_BAUD_RATE
         }
+
     );
 
     // Evento quando a porta serial é aberta
@@ -62,6 +63,10 @@ const serial = async (
         console.log(data);
         const valores = data.split(';');
         const lm35Temperatura = parseFloat(valores[0]);
+        const dht11Umidade = parseFloat(valores[1]);
+        const dht11Temperatura = parseFloat(valores[2]);
+        const luminosidade = parseFloat(valores[3]);
+        const chave = parseInt(valores[4]);
 
         // Armazena os valores dos sensores nos arrays correspondentes
         valoresDht11Umidade.push(dht11Umidade);
@@ -76,8 +81,8 @@ const serial = async (
             // altere!
             // Este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO medida (dht11_umidade, dht11_temperatura, luminosidade, lm35_temperatura, chave) VALUES (?, ?, ?, ?, ?)',
-                [dht11Umidade, dht11Temperatura, luminosidade, lm35Temperatura, chave]
+                'INSERT INTO registro (temperatura) VALUES (?)',
+                [lm35Temperatura]
             );
             console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura + ", " + luminosidade + ", " + lm35Temperatura + ", " + chave)
         
