@@ -170,6 +170,19 @@ padding: 0;
     font-size: 75px;
 }
 
+.corpo4 {
+    display: flex;
+    background-color: #4b7eea;
+    font-family: "Poppins", sans-serif;
+    text-align: start;
+    padding: 1%;
+}
+
+.textos h1, h2, h3 {
+    color: white;
+}
+
+
 @keyframes Animacao {
     0% {
         background-position: 0% 50%
