@@ -172,7 +172,8 @@ padding: 0;
 
 .corpo4 {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     background-color: #4b7eea;
     font-family: "Poppins", sans-serif;
     text-align: center;
