@@ -25,6 +25,11 @@ margin: 0;
 padding: 0;
 }
 
+.header a {
+    text-decoration: none;
+    color: #032030;
+}
+
 .imagem_logo{
   width: 100%;
   height: auto;
@@ -103,10 +108,6 @@ padding: 0;
     justify-content: space-between;
 }
 
-.navbar a {
-    text-decoration: none;
-    color: #032030;
-}
 
 .corpo{
     width: 100%;
@@ -223,10 +224,14 @@ padding: 0;
     list-style: none;
     width: 500px;
     justify-content: space-around;
-    color: #003554;
+    color: #032030;
     font-family: "Poppins", sans-serif;
     font-size: 18px;
     align-items: center;
+}
+
+.corpo5 a {
+    text-decoration: none;
 }
 
 @keyframes Animacao {
