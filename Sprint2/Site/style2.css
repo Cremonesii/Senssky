@@ -172,14 +172,25 @@ padding: 0;
 
 .corpo4 {
     display: flex;
+    justify-content: space-between;
     background-color: #4b7eea;
     font-family: "Poppins", sans-serif;
-    text-align: start;
+    text-align: center;
     padding: 1%;
+}
+
+.textos {
+    justify-content: space-between;
+    align-items: center;
 }
 
 .textos h1, h2, h3 {
     color: white;
+}
+
+.mapa {
+    display: flex;
+    border: 2px solid white;
 }
 
 
