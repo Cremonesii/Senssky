@@ -6,12 +6,13 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
     font-size: 22px;
-    background-color: #222;
-    color: #fff
+    color: #fff;
+    animation: Animacao 10s ease infinite;
 }
 
 .header {
-    background-color: #333;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     width: 100%;
     height: 150px;
     display: flex;
@@ -24,27 +25,25 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    background-color: black;
 }
 
 #header_title {
     font-family: monospace;
     font-weight: bold;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 48px;
-    background-color: #333;
 }
 
 #financeiraWord{
-    color: #5dbafe;
+    color: #003554;
     font-family: monospace;
     font-size: 48px;
-    background-color: #333;
 }
 
 .logo_header{
     width: 200px;
     height: 100px;
-    background-color: #333;
     margin: 0 45px;
 }
 
@@ -153,6 +152,7 @@ button {
 .footer p{
     font-size: 20px;
     font-weight: bold;
+    color:#000;
 }
 .imgfooter {
     width: 18vh;
@@ -261,4 +261,16 @@ button {
 
 .dstq_resumo {
     font-size: 25px;
+}
+
+@keyframes Animacao {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
 }
