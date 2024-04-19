@@ -31,7 +31,7 @@ const serial = async (
             // Credenciais do banco de dados
             host: 'localhost',
             user: 'root',
-            password: '1025serM',
+            password: '--',
             database: 'senssky',
             port: 3306
         }
