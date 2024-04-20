@@ -30,6 +30,12 @@ body {
     align-items: center;
     color: #032030;
 }
+
+#form h2 {
+    text-align: center;
+}
+
+
 .logo img{
     width:70%;
 }
