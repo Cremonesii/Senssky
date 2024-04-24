@@ -11,7 +11,7 @@ body {
     font-family: "Poppins", sans-serif;
     /* ================== ESSAS ULTIMAS 4 LINHAS É PARA FAZER UMA ANIMAÇÃO DE GRADIENTE (MAIS DE UMA COR) ================== */
     transition: all 0.5s ease;
-    background: linear-gradient(-45deg, #032030, #022B42, #003554, #004D74, #006494, #006DA4); /* */
+    background: lin ear-gradient(-45deg, #032030, #022B42, #003554, #004D74, #006494, #006DA4); /* */
     background-size: 400% 400%;
     animation: Animacao 10s ease infinite;
 }
