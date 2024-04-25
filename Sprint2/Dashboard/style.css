@@ -92,10 +92,10 @@
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  color: #003554;
+  color: #fff;
   padding: 20px 20px;
   font-size: 25px;
-  background: #fff;
+  background: #003554;
 }
 .navbar #sidebar-close {
   cursor: pointer;
