@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Dashboard | Senssky</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="dashboardCSS.css">
     <link rel="shortcut icon" type="imagex/png" href="imagens/aviao.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 
@@ -29,7 +28,11 @@
           </li>
 
           <li class="item">
-            <a href="#">Avisos</a>
+            <a href="#">Calculadora</a>
+          </li>
+
+          <li class="item2">
+            <a href="#">Sair</a>
           </li>
         </ul>
       </div>
@@ -37,9 +40,12 @@
 
     <nav class="navbar">
       <i class="fa-solid fa-bars" id="sidebar-close"></i>
+      <h1>Bem vindo Usuário</h1>
     </nav>
 
+    
     <main class="main">
+      
       <div class="container">
         <header>
           <h1>Dashboard</h1>
@@ -47,18 +53,26 @@
           <div class="row">
             <div class="col">
               <div class="card">
-                <h2>Mês</h2>
-                <canvas id="myChart"></canvas>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <h2>Horário</h2>
+                <h2>Gráfico Geral</h2>
                 <canvas id="myChart2"></canvas>
               </div>
             </div>
           </div>
+
+          <div class="alinhar">
     
+          <div class="row">
+            <div class="col">
+              <div class="card2">
+                <h2>Legenda:</h2>
+                <h4><b style="color: #c1ff72;">Verde:</b> Bom Estado</h4>
+                <h4><b style="color: #ffde59;">Amarelo:</b>  Moderado</h4>
+                <h4><b style="color: #ff3131;">Vermelho:</b>  Crítico</h4>
+                <ul id="activityList"></ul>
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col">
               <div class="card">
@@ -68,20 +82,10 @@
                 <ul id="activityList"></ul>
               </div>
             </div>
-            <div class="col">
-              <div class="card">
-                <h3>Vida Util Sensor</h3>
-                <h4>Sensor 1: 69%</h4>
-                <h4>Sensor 2: 99%</h4>
-                <h4>Sensor 3: 42%</h4>
-                <h4>Sensor 4: 56%</h4>
-                <h4>Sensor 5: 11%</h4>
-              </div>
-            </div>
           </div>
-          
+
       </div>
-    
+    </div>
       
     </body>
     </html>
@@ -118,14 +122,27 @@
       new Chart(ctx2, {
         type: 'bar',
         data: {
-          labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+          labels: ['Gasto do Motor'],
           datasets: [{
-            label: 'Temperatura',
-            backgroundColor: 'rgb(30,144,255)',
-            data: [78, 88, 75, 60, 88, 79],
+            label: 'Avião 978',
+            backgroundColor: '#ff3131',
+            data: [70],
+            borderWidth: 1
+          },
+          {
+            label: 'Avião 987',
+            backgroundColor: '#ffde59',
+            data: [80],
+            borderWidth: 1
+          },
+          {
+            label: 'Avião 323',
+            backgroundColor: '#c1ff72',
+            data: [110],
             borderWidth: 1
           },
       ]
+      
         },
         options: {
           scales: {
