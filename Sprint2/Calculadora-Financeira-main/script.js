@@ -1,5 +1,5 @@
 function calculo() {
-
+ 
     
     //Variáveis para os Inputs
     var valorManutencao = Number(input_manutencao.value) * 1_000_000;
@@ -76,7 +76,7 @@ function calculo() {
 
         /* ======================== MENSAGENS DE CADA TÓPICO DO RESULTADO ======================== */
 
-        var topico1 = `<li>Custo estimado para a instalação de um sensor: R$ 7.500,00. Para a instalação de ${qtdMotor} sensores, haverá um custo de <span class='destaque dstq_despesaSensor'>${custoInstallRS}</span>;${div_despesaSensor}</li>
+        var topico1 = `<li>Custo estimado para a instalação de um sensor: R$ 7.500,00. Para a instalação de ${qtdMotor} sensores, haverá um custo de <span class='destaque dstq_despesaSensor'> ${custoInstallRS} </span>; ${div_despesaSensor}</li> 
                     <li>O gasto com manutenção dos motores, sem a aplicação dos sensores, é de <span class='destaque dstq_despesaPadrao'>${valorManutencaoRS}</span>;${div_despesaPadrao}</li>
                     <li>O gasto com manutenção dos motores, com a aplicação dos sensores, é de <span class='destaque dstq_despesaSensor'>${manutencaoReduzRS} (Redução de 22%)</span>;${div_despesaSensor}</li>
                     <li><span class='destaque dstq_resumo'>Dessa forma, a empresa economizará<span class='destaque dstq_resumo dstq_economia'>${lucroManutencaoRS}</span> em manutenções por ano.</span>${div_economia}</li>`;
@@ -105,18 +105,18 @@ function calculo() {
         div_resultadosContainer.innerHTML = `<div class="resultados">
                                                 <br>
                                                     <span class="topics">Custos com Manutenção dos Motores</span>
-                                                    <ul class="topic_list">${topico1}</ul><br><hr>
+                                                    <ul>${topico1}</ul><br><hr>
                                                 <br>
                                                     <span class="topics">Custos com Funcionários</span>
-                                                    <ul class="topic_list">${topico2}</ul><br><hr>
+                                                    <ul>${topico2}</ul><br><hr>
                                                 <br>
                                                     <span class="topics">Dados sobre os Ciclos das Aeronaves</span>
-                                                    <ul class="topic_list">${topico3}</ul><br><hr>
+                                                    <ul>${topico3}</ul><br><hr>
                                                 <br>
                                                     <span class="topics">Gastos Gerais</span>
-                                                    <ul class="topic_list">${topico4}</ul><br><hr>
+                                                    <ul>${topico4}</ul><br><hr>
                                                 <br>
-                                                    <ul class="topic_list">${topico5}</ul>
+                                                    <ul>${topico5}</ul>
                                                 <br>
                                             </div>                                      
                                             <div class="legenda">

@@ -131,14 +131,6 @@ button {
     margin-bottom: 5px;
 }
 
-.topic_list li{
-    background-color: #000;
-    width: 100%;
-    padding: 3px;
-    display: flex;
-    align-items: center;
-}
-
 .footer{
     display: flex;
     height: 15vh;
@@ -197,8 +189,8 @@ button {
 
 .topic_class {
     display: flex;
+    margin: 10px;
     background-color: #000;
-    margin-left: auto;
     align-items: center;
 }
 
@@ -235,7 +227,8 @@ button {
 
 .dstq_despesaSensor {
     color: rgb(216, 163, 113);
-    margin-left: 5px;
+    
+    
 }
 
 .dstq_despesaPadrao {
