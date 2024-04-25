@@ -18,6 +18,9 @@
   font-size: 25px;
   padding: 0 15px;
 }
+.logo img{
+  width: 190px;
+}
 .sidebar a {
   color: #fff;
   text-decoration: none;
@@ -41,9 +44,9 @@
 .submenu-active .itens {
   transform: translateX(-56%);
 }
-.menu-title {
+.bemvindo{
   color: #fff;
-  font-size: 14px;
+  font-size: 25px;
   padding: 15px 20px;
 }
 .item a,
@@ -58,17 +61,17 @@
 }
 .item a:hover,
 .submenu-item:hover,
-.submenu .menu-title:hover {
+.submenu .bemvindo:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 .show-submenu ~ .submenu {
   display: block;
 }
-.submenu .menu-title {
+.submenu .bemvindo{
   border-radius: 12px;
   cursor: pointer;
 }
-.submenu .menu-title i {
+.submenu .bemvindo i {
   margin-right: 10px;
 }
 .navbar,
