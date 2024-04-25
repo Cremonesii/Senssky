@@ -84,20 +84,31 @@
           </div>
         </div>
 
-    
+    <div class="alinhar3">
+
           <div class="row">
             <div class="col">
               <div class="card2">
                 <h2>Legenda:</h2>
-                <h4><b style="color: #c1ff72;">Verde:</b> Bom Estado</h4>
-                <h4><b style="color: #ffde59;">Amarelo:</b>  Moderado</h4>
-                <h4><b style="color: #ff3131;">Vermelho:</b>  Crítico</h4>
+                <h4><b style="color: #c1ff72;">Verde:</b> Moderado</h4>
+                <h4><b style="color: #ffde59;">Amarelo:</b>  Crítico</h4>
+                <h4><b style="color: #ff3131;">Vermelho:</b>  Muito Crítico</h4>
                 <ul id="activityList"></ul>
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col">
+              <div class="card3 ">
+                <h2>Total de Aviões:</h2>
+                <h1><b>22</b></h1>
+                <ul id="activityList"></ul>
+              </div>
+            </div>
+          </div>
+            
+    </div>
 
-      
     </div>
       
     </body>
@@ -137,21 +148,21 @@
         data: {
           labels: ['Gasto do Motor'],
           datasets: [{
-            label: 'Avião 978',
+            label: 'Muito Crítico',
             backgroundColor: '#ff3131',
-            data: [70],
+            data: [5],
             borderWidth: 1
           },
           {
-            label: 'Avião 987',
+            label: 'Crítico',
             backgroundColor: '#ffde59',
-            data: [80],
+            data: [7],
             borderWidth: 1
           },
           {
-            label: 'Avião 323',
+            label: 'Moderado',
             backgroundColor: '#c1ff72',
-            data: [110],
+            data: [10],
             borderWidth: 1
           },
       ]

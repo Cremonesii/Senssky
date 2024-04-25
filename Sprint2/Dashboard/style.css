@@ -120,6 +120,12 @@
 .alinhar2 {
   display: flex;
 }
+
+.alinhar3{
+  display: flex;
+  width: 89%;
+  justify-content: space-between;
+}
 .main h1 {
   color: #003554;;
   font-size: 40px;
@@ -160,10 +166,21 @@ h1 {
 .card2 {
   background-color: #fff;
   padding: 20px;
-  width: 69%;
+  width: 213%;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
+.card3 {
+  background-color: #fff;
+  padding: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
 
 
 h2 {
