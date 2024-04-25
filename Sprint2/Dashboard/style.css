@@ -116,6 +116,10 @@
   justify-content: center;
   width: 100%;
 }
+
+.alinhar2 {
+  display: flex;
+}
 .main h1 {
   color: #003554;;
   font-size: 40px;
@@ -156,7 +160,7 @@ h1 {
 .card2 {
   background-color: #fff;
   padding: 20px;
-  width: 70%;
+  width: 69%;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
