@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Dashboard | Senssky</title>
     <link rel="stylesheet" href="style.css" />
-
+    <link rel="stylesheet" href="dashboardCSS.css">
+    <link rel="shortcut icon" type="imagex/png" href="imagens/aviao.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
   </head>
   <body>
     <nav class="sidebar">
@@ -38,7 +40,102 @@
     </nav>
 
     <main class="main">
-      <h1>Admin</h1>
+      <div class="container">
+        <header>
+          <h1>Dashboard</h1>
+        </header>
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <h2>Mês</h2>
+                <canvas id="myChart"></canvas>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h2>Horário</h2>
+                <canvas id="myChart2"></canvas>
+              </div>
+            </div>
+          </div>
+    
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <h2>Atividade Recente</h2>
+                <h4>Alteração do Sensor</h4>
+                <h4>Remoção Sensor | Avião 784</h4>
+                <ul id="activityList"></ul>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h3>Vida Util Sensor</h3>
+                <h4>Sensor 1: 69%</h4>
+                <h4>Sensor 2: 99%</h4>
+                <h4>Sensor 3: 42%</h4>
+                <h4>Sensor 4: 56%</h4>
+                <h4>Sensor 5: 11%</h4>
+              </div>
+            </div>
+          </div>
+          
+      </div>
+    
+      
+    </body>
+    </html>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+    const ctx = document.getElementById('myChart');
+      
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+          datasets: [{
+            label: 'Temperatura',
+            data: [88, 89, 90, 75, 85, 105],
+            borderWidth: 1
+          },
+      ]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+    
+    <script>
+        const ctx2 = document.getElementById('myChart2');
+      
+      new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+          datasets: [{
+            label: 'Temperatura',
+            backgroundColor: 'rgb(30,144,255)',
+            data: [78, 88, 75, 60, 88, 79],
+            borderWidth: 1
+          },
+      ]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
     </main>
 
     <script src="animation.js"></script>

@@ -8,8 +8,10 @@
 }
 .sidebar {
   position: fixed;
+  overflow-x: hidden;
+  overflow-y: hidden;
   height: 100%;
-  width: 260px;
+  width: 360px;
   background: #003554;
   padding: 15px;
   z-index: 99;
@@ -92,7 +94,7 @@
 .navbar {
   position: fixed;
   color: #003554;
-  padding: 15px 20px;
+  padding: 20px 20px;
   font-size: 25px;
   background: #fff;
   cursor: pointer;
@@ -105,7 +107,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 120vh;
   z-index: 100;
   background: #e7f2fd;
 }
