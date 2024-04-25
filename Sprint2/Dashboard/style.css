@@ -10,7 +10,7 @@
   position: fixed;
   height: 100%;
   width: 260px;
-  background: #11101d;
+  background: #003554;
   padding: 15px;
   z-index: 99;
 }
@@ -46,8 +46,11 @@
 }
 .bemvindo{
   color: #fff;
-  font-size: 25px;
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
   padding: 15px 20px;
+  width: 1000px;
 }
 .item a,
 .submenu-item {
@@ -88,10 +91,10 @@
 }
 .navbar {
   position: fixed;
-  color: #fff;
+  color: #003554;
   padding: 15px 20px;
   font-size: 25px;
-  background: #4070f4;
+  background: #fff;
   cursor: pointer;
 }
 .navbar #sidebar-close {
