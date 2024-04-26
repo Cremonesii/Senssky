@@ -46,10 +46,19 @@
     </nav>
 
     <main class="main">
-        <div class="container">
+        <div class="container2">
             <header>
                 <h1>Motores do Avião XXX</h1>
             </header>
+            <div class="alinhar3">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <canvas id="myChart4"></canvas>
+                    </div>
+                </div>
+            </div>
+            </div>
             <div class="alinhar2">
                 <div class="row">
                     <div class="col">
@@ -58,6 +67,17 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <canvas id="myChart3"></canvas>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+           
 </body>
 
 </html>
@@ -93,6 +113,70 @@
         }
     });
 </script>
+
+<script>
+    const ctx3 = document.getElementById('myChart3');
+
+new Chart(ctx3, {
+    type: 'bar',
+    data: {
+        labels: ['Gasto do Motor'],
+        datasets: [{
+            label: 'motor 1',
+            backgroundColor: '#ff3131',
+            data: [80],
+            borderWidth: 1
+        },
+        {
+            label: 'motor 2',
+            backgroundColor: '#ffde59',
+            data: [60],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+
+<script>
+    const ctx4 = document.getElementById('myChart4');
+
+new Chart(ctx4, {
+    type: 'bar',
+    data: {
+        labels: ['Gasto do Motor'],
+        datasets: [{
+            label: 'motor 1',
+            backgroundColor: '#ff3131',
+            data: [80],
+            borderWidth: 1
+        },
+        {
+            label: 'motor 2',
+            backgroundColor: '#ffde59',
+            data: [60],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+
+
 
 
 </main>
