@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Dashboard | Senssky</title>
+    <link rel="stylesheet" href="styledash.css" />
+    <link rel="shortcut icon" type="imagex/png" href="imagens/aviao.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+</head>
+
+<body>
+    <nav class="sidebar">
+        <a href="#" class="logo"> <img src="imagens/sensskyBranco.png" alt=""></a>
+
+        <div class="menuconteudo">
+            <ul class="itens">
+                <div class="bemvindo">Bem-Vindo Usuário</div>
+
+                <li class="item">
+                    <a href="dashboard.html">Home</a>
+                </li>
+
+                <li class="item">
+                    <a href="aviões.html">Aviões</a>
+                </li>
+
+                <li class="item">
+                    <a href="#">Calculadora</a>
+                </li>
+
+                <li class="item2">
+                    <a href="#">Sair</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="navbar">
+        <i class="fa-solid fa-bars" id="sidebar-close"></i>
+        <h1>Bem vindo Usuário</h1>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+            <header>
+                <h1>Motores do Avião XXX</h1>
+            </header>
+            <div class="alinhar2">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <canvas id="myChart2"></canvas>
+                        </div>
+                    </div>
+                </div>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Gasto do Motor'],
+            datasets: [{
+                label: 'motor 1',
+                backgroundColor: '#ff3131',
+                data: [80],
+                borderWidth: 1
+            },
+            {
+                label: 'motor 2',
+                backgroundColor: '#ffde59',
+                data: [60],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+
+</main>
+
+<script src="animation.js"></script>
