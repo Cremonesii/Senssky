@@ -123,9 +123,16 @@
 
 .alinhar3{
   display: flex;
- flex-direction: column;
- justify-content: center;
+  width: 88%;
+  justify-content: space-between;
 }
+
+.alinhar4{
+  display: flex;
+  width: 88%;
+  justify-content: space-between;
+}
+
 .main h1 {
   color: #003554;;
   font-size: 40px;
@@ -135,14 +142,6 @@
 .container {
   margin: 0 auto;
   padding: 10px;
-  size: 20px;
-}
-
-.container2 {
-  margin: 0 auto;
-  justify-content: center;
-  flex-direction: column;
-  display: flex;
   size: 20px;
 }
 
