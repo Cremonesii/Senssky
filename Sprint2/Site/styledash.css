@@ -133,6 +133,12 @@
   justify-content: space-between;
 }
 
+.alinhar5{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .main h1 {
   color: #003554;;
   font-size: 40px;
