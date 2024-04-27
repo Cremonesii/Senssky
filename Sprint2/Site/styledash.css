@@ -106,7 +106,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;  
-  height: 140vh;
+  height: 100vh;
   z-index: 100;
   background: #fff;
 }
@@ -171,7 +171,8 @@ h1 {
 
 .card {
   background-color: #fff;
-  padding: 30px;
+  padding: 20px;
+  height: 360px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
@@ -179,7 +180,7 @@ h1 {
 .card2 {
   background-color: #fff;
   padding: 20px;
-  width: 100%;
+  width: 1000px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
@@ -243,11 +244,12 @@ li {
 
 .cardaviao {
   display: flex;
-  background-color: #e1f5fc;
+  background-color: #003554;
   align-items: center;
   padding: 30px;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+  font-family: "Poppins", sans-serif;
 }
 
 .botaoaviao {
@@ -262,7 +264,6 @@ li {
   border: none;
   cursor: pointer;
   justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .botaoaviao:hover {
