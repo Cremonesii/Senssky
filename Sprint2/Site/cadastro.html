@@ -12,7 +12,7 @@
 
 <body>
     <div id="form"> <!-- DIV GERAL (DO FORMULARIO) -->
-        <div class="logo">  <!-- DIV LOGO (DO FORMULARIO) -->
+        <div class="logo"> <!-- DIV LOGO (DO FORMULARIO) -->
             <img src="img/logo.png">
         </div>
         <form action=""> <!-- FORMULARIO -->
@@ -20,31 +20,31 @@
             <label for="nome">Nome</label>
             <div class="input">
                 <i class="fa-solid fa-user"></i> <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
-                <input type="text" id="iptnome" placeholder="Nome">
+                <input type="text" id="iptnome" placeholder="Nome" required>
             </div>
             <label for="sobrenome">Sobrenome</label>
             <div class="input">
                 <i class="fa-solid fa-user"></i> <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
-                <input type="text" id="iptsobrenome" placeholder="Sobrenome">
+                <input type="text" id="iptsobrenome" placeholder="Sobrenome" required>
             </div>
             <label for="empresa">Cargo</label>
             <div class="input">
                 <i class="fa-solid fa-suitcase"></i> <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
-                <input type="text" id="iptempresa" placeholder="Cargo">
+                <input type="text" id="iptempresa" placeholder="Cargo" required>
             </div>
             <label for="senha">Senha</label>
             <div class="input">
                 <i class="fa-solid fa-lock"></i> <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
-                <input type="password" id="iptsenha" placeholder="Senha">
+                <input type="password" id="iptsenha" placeholder="Senha" required>
             </div>
             <label for="email">Email</label>
             <div class="input">
                 <i class="fa-solid fa-envelope"></i> <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
-                <input type="text" id="iptemail" placeholder="Email">
+                <input type="text" id="iptemail" placeholder="Email" required>
             </div>
 
             <div id="button">
-                <button type="submit">Cadastrar</button>
+                <button onclick="redirecionar(); return false" type="submit">Cadastrar</button>
             </div>
 
         </form>
@@ -56,3 +56,51 @@
 
 <!-- SCRIPT USADO PARA IMPORTAR OS "ICONS" TIRADO DE UM SITE NO CASO https://fontawesome.com/icons -->
 <script src="https://kit.fontawesome.com/c2c1a07a20.js" crossorigin="anonymous"></script>
+
+<script>
+    function redirecionar() {
+        var nome = iptnome.value;
+        var sobrenome = iptsobrenome.value;
+        var cargo = iptempresa.value;
+        var senha = iptsenha.value;
+        var email = iptemail.value;
+
+        var indice_arroba = email.indexOf('@');
+        var indice_ponto = email.indexOf('.');
+
+        var senhaTamanho = senha.length;
+        var nomeTamanho  = nome.length;
+        var sobrenomeTamanho = sobrenome.length;
+        var cargoTamanho = cargo.length;
+        var emailTamanho = email.length;
+
+        var validaçãoPonto = 0
+        var validaçãoEmail = 0
+        var validaçãoSenha = 0
+
+        if (indice_arroba < 0) {
+            alert(`Email inválido! Não possui @ na frase`)
+        } else {
+            validaçãoEmail = true;
+        }
+
+        if (indice_ponto < 0) {
+            alert(`Email inválido! Não possui . na frase`)
+        } else {
+            validaçãoPonto = true;
+        }
+
+        if (senhaTamanho < 5) {
+            alert('A senha precisa ter no mínimo 5 caracteres')
+        } else {
+            validaçãoSenha = true;
+        }
+
+        if (validaçãoEmail == true && validaçãoPonto == true && validaçãoSenha == true) {
+            location.href = 'login.html'
+        }
+
+    }
+
+
+</script>
