@@ -30,11 +30,8 @@
 
             <div id="button">
                 <button onclick="redirecionar(); return false" type="submit">Acessar</button>
-                <div class="esqueceusenha">
-                    <!-- O 'RETURN FALSE' SERVE PARA INTERROMPER O ENVIO PADRAO DO FORMULÁRIO E ESPERAR UMA VALIDAÇÃO QUE MUDE O SEU VALOR "FALSE" PARA "TRUE"  -->
-                    <span><a href="esqueceu_senha.html" class="href">Esqueceu sua senha?</a></span>
-                    <!-- HREF = AO CLICAR VOCÊ IRA PARA OUTRA PAGINA -->
-
+                <div id="esqueceusenha">
+                
                 </div>
             </div>
 
@@ -49,28 +46,37 @@
 <script src="https://kit.fontawesome.com/c2c1a07a20.js" crossorigin="anonymous"></script>
 
 <script>
-    var tentativas = 5
+    
+    var tentativas = 4
+
     function redirecionar() {
+
         var email = input_iptemail.value;
         var senha = input_iptsenha.value;
         var validaçãoEmail = 0;
         var validaçãoSenha = 0;
 
-        if (tentativas >= 1 && email == 'fernando.brandao@sptech.school' && (senha == 'brandao')) {
+        for (var cont = 1; cont <= tentativas; cont++) {
+        
+        if (tentativas < 1) {
+            esqueceusenha.innerHTML = `Usuário bloqueado!`
+        } else {
+            tentativas --;
+            esqueceusenha.innerHTML = `Dados incorretos! Por favor insira os dados corretos! Você ainda tem ${tentativas} tentativas!`;
+        } }
+        if (email == 'fernando.brandao@sptech.school' && senha == 'brandao') {
             validaçãoEmail = true;
             validaçãoSenha = true;
-            tentativas = 5
-        } else if (tentativas <= 1) {
-            tentativas--;
-            alert('Usuário bloqueado!')
-        } else {
-            tentativas--;
-            alert(`Dados incorretos! Por favor insira os dados corretos! Você ainda tem ${tentativas} tentativas!`);
-        }
 
         if (validaçãoEmail == true && validaçãoSenha == true) {
             location.href = 'dashboard.html' //O LOCATION.HREF SERVE PARA DIRECIONAR VOCÊ A ALGUMA PAGINA APÓS A VALIDAÇÃO DEFINIDA
         }
+
+        }
+    
+       
+        
+        
 
     }
 </script>
