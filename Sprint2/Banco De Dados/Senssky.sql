@@ -61,12 +61,14 @@ INSERT INTO motor VALUES
 create table registro (
 idRegistro int primary key auto_increment,
 temperatura double,
-fkMotor int,
-constraint fkRegistroMotor foreign key (fkMotor)
-	references motor(idMotor));
+dtRegistro timestamp default current_timestamp
+-- fkMotor int,
+-- constraint fkRegistroMotor foreign key (fkMotor)
+-- 	references motor(idMotor)
+    );
     
 insert into registro values 
-	(default, 75.0 , 1)
+	(default, 75.0)
 	-- (default, 93.0 , 2)
 	-- (default, 87.0 , 3)
     
