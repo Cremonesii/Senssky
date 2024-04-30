@@ -172,6 +172,10 @@ padding: 0;
     padding-top: 10px;
 }
 
+.card h2 {
+    color: #000;
+}
+
 .sobre{
     font-size: 50px;
     padding: 3%;
