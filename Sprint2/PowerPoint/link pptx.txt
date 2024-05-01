@@ -1,1 +1,7 @@
-https://www.canva.com/design/DAGDXgyQSnI/ayjw-hK1TM4gB2DerdoaSQ/edit?utm_content=DAGDXgyQSnI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+Contexto:
+
+Como o mateus já disse somos a senssky!, nós somos uma empresa de B2B que trata-se de uma expressão em inglês utilizada para se referir a empresas que vendem produtos e serviços para outras empresas, como por exemplo qualquer empresa de companhia aérea nós poderiamos vender nosso serviço de medição de temperatura de motores TURBOFAN (O motor Turbofan é um motor a reação utilizado em aviões projetados especialmente para altas velocidades de cruzeiro)
+
+Metricas:
+
+uma metrica são informações que precisam ser de fácil entendimento, e utilizamos o grafico em barra na dashboard que mede a temperatura, tambem colocamos as cores para sinalizar as temperaturas "Muito Critica" que seria a cor vermelha, "Critico" que seria a cor amarela e "Moderado" que seria a cor verde, onde "Muito Critica" a temperatura do sensor que iremos instalar estará acima de 100 Graus C, e teria que ser urgentemente imediatamente analisada e restaurada para ter um melhor desempenho novamente, já o "Critico" seria uma temperatura em torno de 85 a 90 Graus C, onde também deverá ser analisada, já "Moderado" seria o normal do nossos sensores
