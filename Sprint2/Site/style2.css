@@ -191,7 +191,10 @@ padding: 0;
     font-weight: bold;
     color: white;
 }
-
+.corpo3 h2  {
+    font-weight: bold;
+    color: black;
+}
 .textos {
     justify-content: space-between;
     align-items: center;

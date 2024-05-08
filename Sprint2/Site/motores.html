@@ -56,9 +56,11 @@
                     <div class="card">
                         <canvas id="myChart4"></canvas>
                     </div>
+                    
                 </div>
             </div>
             </div>
+            
             <div class="alinhar4">
                 <div class="row">
                     <div class="col">
@@ -76,7 +78,20 @@
                     </div>
                 </div>
                 </div>
+                <div class="row">
+                    <div class="col">
+                      <div class="card6">
+                        <h2>Legenda:</h2>
+                        <h4><b style="color: #c1ff72;">Verde:</b> +60°C</h4>
+                        <h4><b style="color: #ffde59;">Amarelo:</b>  +90°C</h4>
+                        <h4><b style="color: #ff3131;">Vermelho:</b>  -60°C / + 100°C</h4>
+                        <ul id="activityList"></ul>
+                      </div>
+                    </div>
+                  </div>
         </div>
+
+        
            
 </body>
 
@@ -90,11 +105,11 @@
     new Chart(ctx2, {
         type: 'bar',
         data: {
-            labels: ['Gasto do Motor 1'],
+            labels: ['Termperatura do Motor 1'],
             datasets: [{
                 label: 'motor 1',
                 backgroundColor: '#ff3131',
-                data: [80],
+                data: [110],
                 borderWidth: 1
             },]
         },
@@ -114,11 +129,11 @@
 new Chart(ctx3, {
     type: 'bar',
     data: {
-        labels: ['Gasto do Motor 2'],
+        labels: ['Temperatura do Motor 2'],
         datasets: [{
             label: 'motor 2',
             backgroundColor: '#ffde59',
-            data: [60],
+            data: [90],
             borderWidth: 1
         },]
     },
@@ -139,17 +154,17 @@ new Chart(ctx3, {
 new Chart(ctx4, {
     type: 'bar',
     data: {
-        labels: ['Gasto do Motor'],
+        labels: ['Temperatura do Motor'],
         datasets: [{
             label: 'motor 1',
             backgroundColor: '#ff3131',
-            data: [80],
+            data: [110],
             borderWidth: 1
         },
         {
             label: 'motor 2',
             backgroundColor: '#ffde59',
-            data: [60],
+            data: [90],
             borderWidth: 1
         }]
     },

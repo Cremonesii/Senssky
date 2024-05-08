@@ -1,4 +1,5 @@
 create database senssky;
+
 use senssky;
 
 create table empresa(
@@ -66,11 +67,10 @@ dtRegistro timestamp default current_timestamp
 -- constraint fkRegistroMotor foreign key (fkMotor)
 -- 	references motor(idMotor)
     );
-    
+
 insert into registro values 
-	(default, 75.0)
+	(default, 75.0);
 	-- (default, 93.0 , 2)
 	-- (default, 87.0 , 3)
     
-
 
