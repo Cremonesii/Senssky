@@ -40,22 +40,19 @@
 
     <nav class="navbar">
       <i class="fa-solid fa-bars" id="sidebar-close"></i>
-      <h1>Bem vindo Fernando</h1>
+      <h1 class="bem_vindo">Bem vindo Fernando</h1>
     </nav>
 
     
     <main class="main">
       
       <div class="container">
-        <header>
-          <h1>Dashboard</h1>
-        </header>
         <div class="alinhar2">
        
           <div class="row">
             <div class="col">
               <div class="card2">
-                <h2>Gráfico Geral</h2>
+                <h2>Temperatura Média das temperaturas</h2>
                 <canvas id="myChart2"></canvas>
               </div>
             </div>
@@ -76,7 +73,13 @@
                 <h4>Remoção Sensor | Avião 983</h4>
                 <br>
                 <h4>Alteração do Sensor</h4>
-                <h4>Remoção Sensor | Avião 832</h4>
+                <h4>Remoção Sensor | Avião 293</h4>
+                <br>
+                <h4>Alteração do Sensor</h4>
+                <h4>Remoção Sensor | Avião 271</h4>
+                <br>
+                <h4>Alteração do Sensor</h4>
+                <h4>Remoção Sensor | Avião 829</h4>
                 <br>
                 <ul id="activityList"></ul>
               </div>
@@ -90,7 +93,6 @@
             <div class="col">
               <div class="card2">
                 <h2>Legenda:</h2>
-                <h4><b style="color: #c1ff72;">Verde:</b> Moderado</h4>
                 <h4><b style="color: #ffde59;">Amarelo:</b>  Crítico</h4>
                 <h4><b style="color: #ff3131;">Vermelho:</b>  Muito Crítico</h4>
                 <ul id="activityList"></ul>
@@ -150,19 +152,13 @@
           datasets: [{
             label: 'Muito Crítico',
             backgroundColor: '#ff3131',
-            data: [3],
+            data: [45],
             borderWidth: 1
           },
           {
             label: 'Crítico',
             backgroundColor: '#ffde59',
-            data: [5],
-            borderWidth: 1
-          },
-          {
-            label: 'Moderado',
-            backgroundColor: '#c1ff72',
-            data: [10],
+            data: [100],
             borderWidth: 1
           },
       ]

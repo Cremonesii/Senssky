@@ -2,7 +2,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 .sidebar {
@@ -10,7 +9,7 @@
   overflow-x: hidden;
   overflow-y: hidden;
   height: 100%;
-  width: 360px;
+  width: 265px;
   background: #003554;
   padding: 15px;
   z-index: 99;
@@ -26,32 +25,21 @@
   color: #fff;
   text-decoration: none;
 }
-.menuconteudo {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  margin-top: 40px;
-  overflow-y: scroll;
-}
-.menuconteudo::-webkit-scrollbar {
-  display: none;
-}
+
 .itens {
   height: 100%;
   width: 100%;
   list-style: none;
   transition: all 0.4s ease;
 }
-.submenu-active .itens {
-  transform: translateX(-56%);
-}
+
 .bemvindo{
   color: #fff;
+  padding: 0 0 20px;
   display: flex;
   flex-direction: row;
   font-size: 20px;
-  padding: 15px 20px;
-  width: 1000px;
+  width: 800px;
 }
 
 .item2{
@@ -59,22 +47,11 @@
   align-items: center;
   padding-top: 30%;
 }
-.item a,
-.submenu-item {
-  padding: 16px;
-  display: inline-flex;
-  width: 100%;
-  border-radius: 12px;
-}
+
 .item i {
   font-size: 12px;
 }
-.item a:hover,
-.submenu-item:hover,
-.submenu .bemvindo:hover {
-  background: rgba(255, 255, 255, 0.1);
-  width: 70%;
-}
+
 .navbar,
 .main {
   left: 260px;
@@ -82,18 +59,14 @@
   transition: all 0.5s ease;
   z-index: 1000;
 }
-.sidebar.close ~ .navbar,
-.sidebar.close ~ .main {
-  left: 0;
-  width: 100%;
-}
+
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   position: fixed;
   color: #fff;
-  padding: 20px 20px;
+  padding: 15px 15px;
   font-size: 25px;
   background: #003554;
 }
@@ -117,20 +90,8 @@
   width: 100%;
 }
 
-.alinhar2 {
+.alinhar2, .alinhar3, .alinhar4{
   display: flex;
-}
-
-.alinhar3{
-  display: flex;
-  width: 88%;
-  justify-content: space-between;
-}
-
-.alinhar4{
-  display: flex;
-  width: 88%;
-  justify-content: space-between;
 }
 
 .alinhar5{
@@ -146,7 +107,7 @@
 }
 
 .container {
-  margin: 0 auto;
+  margin-top: 100px;
   padding: 10px;
   size: 10px;
 }
@@ -156,13 +117,14 @@ header {
   margin-bottom: 20px;
 }
 
-h1 {
+.bem_vindo {
   font-size: 24px;
+  justify-content: flex-start;
 }
 
 .row {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 .col {
   flex: 1 0 300px;
@@ -170,27 +132,23 @@ h1 {
 }
 
 .card {
-  background-color: #fff;
   padding: 20px;
-  height: 360px;
+  height: 555px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .card2 {
-  background-color: #fff;
   padding: 20px;
   width: 1000px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 .card3 {
-  background-color: #fff;
-  padding: 20px;
+  padding: 10px;
   padding-left: 10px;
   padding-right: 10px;
-  width: 100%;
-  height: 150px;
+  width: 94%;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
@@ -240,12 +198,6 @@ nav a:hover {
 
 li {
   margin-bottom: 10px;
-}
-@media (max-width: 768px) {
-
-  .container {
-    flex-direction: column;
-  }
 }
 
 .cardaviao {
