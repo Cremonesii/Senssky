@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Dashboard | Senssky</title>
+    <link rel="stylesheet" href="styledash.css" />
+    <link rel="shortcut icon" type="imagex/png" href="imagens/aviao.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+  </head>
+  <body>
+    <nav class="sidebar">
+      <a href="#" class="logo"> <img src="imagens/sensskyBranco.png" alt=""></a>
+
+      <div class="menuconteudo">
+        <ul class="itens">
+          <div class="bemvindo">Bem-Vindo Fernando</div>
+
+          <li class="item">
+            <a href="#">Home</a>
+          </li>
+
+          <li class="item">
+            <a href="aviões.html">Aviões</a>
+          </li>
+
+          <li class="item">
+            <a href="calculadora.html">Calculadora</a>
+          </li>
+
+          <li class="item2">
+            <a href="index.html">Sair</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <nav class="navbar">
+      <i class="fa-solid fa-bars" id="sidebar-close"></i>
+      <h1>Bem vindo Fernando</h1>
+    </nav>
+
+    
+    <main class="main">
+      
+      <div class="container">
+        <header>
+          <h1>Dashboard</h1>
+        </header>
+        <div class="alinhar2">
+       
+          <div class="row">
+            <div class="col">
+              <div class="card2">
+                <h2>Gráfico Geral</h2>
+                <canvas id="myChart2"></canvas>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <h2>Atividade Recente:</h2>
+                <h4>Alteração do Sensor</h4>
+                <h4>Remoção Sensor | Avião 955</h4>
+                <br>
+                <h4>Alteração do Sensor</h4>
+                <h4>Remoção Sensor | Avião 874</h4>
+                <br>
+                <h4>Alteração do Sensor</h4>
+                <h4>Remoção Sensor | Avião 983</h4>
+                <br>
+                <h4>Alteração do Sensor</h4>
+                <h4>Remoção Sensor | Avião 832</h4>
+                <br>
+                <ul id="activityList"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <div class="alinhar3">
+
+          <div class="row">
+            <div class="col">
+              <div class="card2">
+                <h2>Legenda:</h2>
+                <h4><b style="color: #c1ff72;">Verde:</b> Moderado</h4>
+                <h4><b style="color: #ffde59;">Amarelo:</b>  Crítico</h4>
+                <h4><b style="color: #ff3131;">Vermelho:</b>  Muito Crítico</h4>
+                <ul id="activityList"></ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="card3 ">
+                <h2>Total de Aviões:</h2>
+                <h1><b>18</b></h1>
+                <ul id="activityList"></ul>
+              </div>
+            </div>
+          </div>
+            
+    </div>
+
+    </div>
+      
+    </body>
+    </html>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+    const ctx = document.getElementById('myChart');
+      
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+          datasets: [{
+            label: 'Temperatura',
+            data: [88, 89, 90, 75, 85, 105],
+            borderWidth: 1
+          },
+      ]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+    
+    <script>
+        const ctx2 = document.getElementById('myChart2');
+      
+      new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: ['Gasto do Motor'],
+          datasets: [{
+            label: 'Muito Crítico',
+            backgroundColor: '#ff3131',
+            data: [3],
+            borderWidth: 1
+          },
+          {
+            label: 'Crítico',
+            backgroundColor: '#ffde59',
+            data: [5],
+            borderWidth: 1
+          },
+          {
+            label: 'Moderado',
+            backgroundColor: '#c1ff72',
+            data: [10],
+            borderWidth: 1
+          },
+      ]
+      
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+    </main>
+
+    <script src="animation.js"></script>
+  </body>
+</html>
