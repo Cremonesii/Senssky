@@ -69,7 +69,7 @@
 
 <script>
   function cadastrar() {
-    aguardar();
+    // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -107,13 +107,16 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
+        sobrenomeServer: sobrenomeVar, 
         emailServer: emailVar,
+        cargoServer: cargoVar,
         senhaServer: senhaVar,
         empresaServer: empresaVar
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
+        console.log(empresaVar)
 
         if (resposta.ok) {
           cardErro.style.display = "block";
@@ -146,7 +149,7 @@
       .then(function (resposta) {
         resposta.json().then((empresas) => {
           empresas.forEach((empresa) => {
-            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+            listaEmpresas.innerHTML += `<option value='${empresa.idempresa}'>${empresa.cnpj}</option>`;
           });
         });
       })
