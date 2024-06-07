@@ -1,48 +1,26 @@
-create database senssky;
-use senssky;
 
-create table empresa(
-idEmpresa int primary key auto_increment, 
-nome varchar(45),
-cnpj char(14));
+/*
+comandos para mysql server
+*/
 
-insert into empresa values
-(default, 'Azul', '47865061000185');
--- (default, 'Gol', '47865061000185'),
--- (default, 'LATAM', '47865061000185');
--- A gente só esta usando uma empresa como exemplo, porém se quiser adicionar mais está ai o insert para adicionar
+CREATE DATABASE senssky;
+USE senssky;
 
-
-create table usuario(
-idUsuario int primary key auto_increment, 
-nome varchar(45) not null,
-sobrenome varchar(45) not null,
-senha varchar(45) not null,
-email varchar(45) not null,
-cargo varchar(45),
-fkEmpresa int,
-	constraint fkUsuarioEmpresa foreign key (fkEmpresa)
-		references empresa (idEmpresa),
-	constraint chk_email check (email like '%@%'));
-    
-insert into usuario values 
-(default, 'Vinícius', 'Carvalho', '04241030', 'vinicius.carvalho@sptech.school', null, 1),
-(default, 'Mateus', 'Cremonesi', '04241020', 'mateus.cremonesi@sptech.school', null, 1);
-
-create table aeronave (
-	idAeronave int primary key auto_increment,
-    nome varchar(45),
-    modelo varchar(45),
-    fkempresa int,
-    CONSTRAINT FkEmpresa foreign key (fkempresa) references empresa(idEmpresa)
+CREATE TABLE empresa (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	razao_social VARCHAR(50),
+	cnpj CHAR(14)
 );
 
-insert into aeronave values
-(default, 'Aeronave 737', 'Boeing 737', 1);
--- (default, 'Aeronave A320', 'Airbus A320', 1),
--- (default, 'Aeronave 787', 'Boeing 787 Dreamliner', 1);
--- Aeronaves que usam o motor turbo fan, coloquei uma nave só devido a quantidade de empresas, se tiver mais inserts de empresa
--- Acrescenta essas duas aeronaves a mais
+CREATE TABLE usuario (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(50),
+	email VARCHAR(50),
+	senha VARCHAR(50),
+    cargo VARCHAR(50),
+	fk_empresa INT,
+	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+);
 
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -52,16 +30,14 @@ CREATE TABLE aviso (
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 
-CREATE TABLE motor (
+create table motor (	
+/* em nossa regra de negócio, um aquario tem apenas um sensor */
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	descricao VARCHAR(300),
 	fk_empresa INT,
 	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
-
-INSERT INTO motor VALUES 
-(default, 'Motor TurboEixo', 60.0, 95.0, 'LM35', '1', 1);
-
+/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 create table medida (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	dht11_umidade DECIMAL,
@@ -70,8 +46,25 @@ create table medida (
 	momento DATETIME,
 	fk_motor INT,
 	FOREIGN KEY (fk_motor) REFERENCES motor(id)
-    );
+);
 
-	select * from usuario;
-   	select * from registro;	
 
+-- SELECT UTIL
+select * from usuario;
+select * from medida;
+
+-- INSERT DAS EMPRESAS (COMO POR EXEMPLO A GOL E A LATAM)
+insert into empresa (razao_social, cnpj) values ('Empresa 1', 'Gol');
+insert into empresa (razao_social, cnpj) values ('Empresa 2', 'Latam');
+
+-- INSERT DOS AS AVIÕES ONDE IRÁ APARECER NA DASHBOARD (OLHE A FK)
+insert into motor (descricao, fk_empresa) values ('Embraer 195', 1);
+insert into motor (descricao, fk_empresa) values ('Boeing 787', 1);
+insert into motor (descricao, fk_empresa) values ('Airbus A380', 2);
+select * from motor;
+
+-- INSERT FEITO PELO ARDUINO (API dat-acqu-ino)
+insert into medida (dht11_temperatura, fk_motor, momento) values (80, 7, now());
+insert into medida (dht11_temperatura, fk_motor, momento) values (100,  3, now());
+insert into medida (dht11_temperatura, fk_motor, momento) values (70,  4, now());
+insert into medida (dht11_temperatura, fk_motor, momento) values (90,  5, now());

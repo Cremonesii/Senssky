@@ -9,12 +9,12 @@
     <title>Senssky | Login</title>
 
     <script src="./js/sessao.js"></script>
+
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css">
-    <!-- ICONS -->
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="shortcut icon" type="imagex/png" href="css/imagem/aviao.png">
+
 </head>
 
 <body>
@@ -27,12 +27,12 @@
             <label for="email">Email</label>
             <div class="input">
                 <i class="fa-solid fa-envelope"></i> <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
-                <input type="text" id="email_input" placeholder="Email">
+                <input type="text" id="input_iptemail" placeholder="Email">
             </div>
             <label for="senha">Senha</label>
             <div class="input">
                 <i class="fa-solid fa-lock"></i> <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
-                <input type="password" id="senha_input" placeholder="Senha">
+                <input type="password" id="input_iptsenha" placeholder="Senha">
             </div>
 
             <div id="button">
@@ -49,14 +49,15 @@
 
 </html>
 
-<script>
+<!-- SCRIPT USADO PARA IMPORTAR OS "ICONS" TIRADO DE UM SITE NO CASO https://fontawesome.com/icons -->
+<script src="https://kit.fontawesome.com/c2c1a07a20.js" crossorigin="anonymous"></script>
 
+<script>
 
     function entrar() {
 
-
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        var emailVar = input_iptemail.value;
+        var senhaVar = input_iptsenha.value;
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
@@ -96,7 +97,7 @@
 
                     setTimeout(function () {
                         window.location = "./dashboard/dashboards.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 2000); // apenas para exibir o loading
 
                 });
 

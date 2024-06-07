@@ -1,129 +1,94 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Senssky | Cadastro</title>
 
-  <title>AquaTech | Cadastro</title>
+    <script src="./js/sessao.js"></script>
 
-  <script src="./js/sessao.js"></script>
+    <!-- Montserrat Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="./css/estilo.css" />
-  <link rel="icon" href="./assets/icon/favicon2.ico" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-</head>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
 
-<body onload="listar()">
-  <!--header inicio-->
-  <div class="header">
-    <div class="container">
-      <h1 class="titulo">AquaTech</h1>
-      <ul class="navbar">
-        <li>
-          <a href="index.html">Inicial</a>
-        </li>
-        <li>
-          <a href="simulador.html">Simulador</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li class="agora">
-          <a href="#">Cadastro</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!--header fim-->
+    <!-- ICONS -->
+    <link rel="icon" href="./assets/icon/favicon2.ico" />
 
-  <div class="login">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+  </head>
+
+  <body onload="listar()">
+    <div id="form">
+      <!-- DIV GERAL (DO FORMULARIO) -->
+      <div class="logo">
+        <!-- DIV LOGO (DO FORMULARIO) -->
+        <img src="css/imagem/logo.png" />
       </div>
-    </div>
-    <div class="container">
-      <div class="card card-cadastro">
-        <h2>Bem-vindo!</h2>
-        <div class="formulario">
-          <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-          <div class="campo">
-            <span>Empresa:</span>
-            <select name="empresas" id="listaEmpresas">
-              <option selected>Selecione uma empresa</option>
-            </select>
-          </div>
-          <div class="campo">
-            <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-          <div class="campo">
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div>
-          <div class="campo">
-            <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
+      <div>
+        <!-- FORMULARIO -->
+        <h2 class="title">Cadastro Usuário</h2>
+        <label for="nome">Nome</label>
+        <div class="input">
+          <i class="fa-solid fa-user"></i>
+          <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
+          <input type="text" id="nome_input" placeholder="Nome" />
         </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
+        <label for="empresa">Cargo</label>
+        <div class="input">
+          <i class="fa-solid fa-suitcase"></i>
+          <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
+          <input type="text" id="cargo_input" placeholder="Cargo" />
+        </div>
+        <label for="senha">Senha</label>
+        <div class="input">
+          <i class="fa-solid fa-lock"></i>
+          <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
+          <input type="password" id="senha_input" placeholder="Senha" />
+        </div>
+        <label for="email">Email</label>
+        <div class="input">
+          <i class="fa-solid fa-envelope"></i>
+          <!-- ICONES IMPORTADOS PELO SCRIPT (ULTIMA LINHA) -->
+          <input type="text" id="email_input" placeholder="Email" />
+        </div>
+        <label for="email">Empresa</label>
+        <div class="input">
+          <select class="select" id="listaEmpresas">
+            <option>Selecione uma Empresa</option>
+          </select>
         </div>
 
-        <div id="div_erros_login"></div>
+        <div id="button">
+          <button onclick="cadastrar()" type="submit">Cadastrar</button>
+        </div>
       </div>
     </div>
-  </div>
-
-  <!--footer inicio-->
-  <div class="footer">
-    <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-      <span class="version">v1.0.0</span>
-    </div>
-  </div>
-  <!--footer fim-->
-</body>
-
+  </body>
 </html>
 
 <script>
   function cadastrar() {
-    aguardar();
-
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var empresaVar = listaEmpresas.value
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      empresaVar == ""
-    ) {
+    var empresaVar = listaEmpresas.value;
+    if (nomeVar == "" || emailVar == "" || senhaVar == "" || empresaVar == "") {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Mensagem de erro para todos os campos em branco)";
 
       finalizarAguardar();
       return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
     }
 
     // Enviando o valor da nova input
@@ -138,7 +103,7 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        empresaServer: empresaVar
+        empresaServer: empresaVar,
       }),
     })
       .then(function (resposta) {
@@ -155,14 +120,14 @@
           }, "2000");
 
           limparFormulario();
-          finalizarAguardar();
+          // finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+        // finalizarAguardar();
       });
 
     return false;
@@ -182,9 +147,5 @@
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
       });
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
   }
 </script>

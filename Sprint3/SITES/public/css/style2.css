@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 945px;
+    font-family: "Poppins", sans-serif;
+    /* ================== ESSAS ULTIMAS 4 LINHAS É PARA FAZER UMA ANIMAÇÃO DE GRADIENTE (MAIS DE UMA COR) ================== */
+    transition: all 0.5s ease;
+    background: lin ear-gradient(-45deg, #032030, #022B42, #003554, #004D74, #006494, #006DA4); /* */
+    background-size: 400% 400%;
+    animation: Animacao 10s ease infinite;
+}
+
+.header{
+display: flex;
+justify-content: center;
+width: 100%;
+height: 10%;
+margin: 0;
+padding: 0;
+}
+
+.header a {
+    text-decoration: none;
+    color: #032030;
+}
+
+.imagem_logo{
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+}
+
+.imagem_container {
+    width: 70%;
+    margin-right: 200px;
+    height: auto;
+}
+
+.imagem_aviao {
+    width: 29%;
+    height: auto;
+    margin-left: 100px;
+    margin-top: 35px;
+  }
+
+.texto_sobre {
+    float: right;
+    width: 50%;
+    color: #f8f8ff;
+  }
+
+.titulo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 190px;
+    height: fit-content;
+}
+
+/* .texto{
+    padding: 30px;
+    display: flex;
+    color: black
+}
+.cor{
+    color: #006DA4; 
+} */
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px ;
+    margin: 0;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    height: 101px;
+}
+
+.header .container {
+    justify-content: space-around;
+}
+
+.navbar {
+    display: flex;
+    margin-left: 600px;
+    flex-direction: row;
+    list-style: none;
+    width: 500px;
+    justify-content: space-evenly;
+    color: #003554;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    align-items: center;
+}
+
+.navbar #ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.corpo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-image: url("imagem/fundo.png");
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    padding: 5%;
+}
+
+.corpo2 {
+    background: linear-gradient(-45deg, #2c67e3, #4b7eea, #2e88ea, #3a56b2, #0f95a0);
+    background-size: 400% 400%;
+    animation: Animacao 10s ease infinite;
+    font-family: "Poppins", sans-serif;
+    padding: 5%;
+    height: 350px;
+}
+
+.corpo3{
+    background-color: white;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    padding: 5%;
+}
+
+.servicos {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.card img {
+    width: 100px;
+    height: 87px;
+}
+
+.card {
+    width: 200px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    padding: 60px;
+    font-size: 18px;
+    border-radius: 5%;
+    box-shadow: 0 0 10px rgb(217, 216, 216);
+    flex-direction: column;
+}
+
+.card p {
+    padding-top: 10px;
+}
+
+.card h2 {
+    color: #000;
+}
+
+.sobre{
+    font-size: 50px;
+    padding: 3%;
+}
+
+.corpo4 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #4b7eea;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    padding: 1%;
+}
+
+.corpo4 h3 span {
+    font-weight: bold;
+    color: white;
+}
+.corpo3 h2  {
+    font-weight: bold;
+    color: black;
+}
+.textos {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.textos h1, h2, h3 {
+    color: white;
+}
+
+.mapa {
+    display: flex;
+    border: 2px solid white;
+}
+
+.corpo5{
+    display: flex;
+    height: 15vh;
+    background-color: white;
+    justify-content: space-around;
+    font-family: "Poppins", sans-serif;
+    align-items: center;
+    
+}
+
+.corpo5 p{
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imgfooter {
+    width: 18vh;
+    height: 10vh;
+}
+
+.corpo5 li{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 500px;
+    justify-content: space-around;
+    color: #032030;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    align-items: center;
+}
+
+.corpo5 a {
+    text-decoration: none;
+}
+
+
+
+@keyframes Animacao {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
