@@ -87,37 +87,52 @@
       <!-- Main -->
       <main class="main-container">
         <div class="main-title">
-          <h2>TEMPERATURA DE TODOS OS AVIÕES</h2>
+          <h2>Central de temperaturas gerais de cada avião da Empresa: <span id="b_empresa">empresa</span></h2>
         </div>
 
         <div class="main-cards">
           <div class="card">
             <div class="card-inner">
-              <h3>AVIÕES COM PROBLEMA</h3>
+              <h3>Quantidadede aviões cadastrados nos sistema</h3>
               <span class="material-icons-outlined">inventory_2</span>
             </div>
-            <h1>249</h1>
+            <h1 id="totaldeavioes"></h1>
           </div>
 
           <div class="card">
             <div class="card-inner">
               <h3>ALERTAS</h3>
-              <span class="material-icons-outlined"
-                >notification_important</span
-              >
+              <span class="material-icons-outlined">notification_important</span>
             </div>
             <div id="alerta"></div>
           </div>
+          <div class="alinhamentolegenda">
+          <div class="row">
+            <div class="col">
+              <div class="card6">
+                <h2>Legenda:</h2>
+                <h4><b style="color: #c1ff72;">Verde:</b> Moderado</h4>
+                <h4><b style="color: #ffde59;">Amarelo:</b>  Crítico</h4>
+                <h4><b style="color: #ff3131;">Vermelho:</b>  Muito Crítico</h4>
+                <ul id="activityList"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
 
+       
+
+        <div class="dividircard">
         <div class="charts">
           <div class="charts-card">
-            <h2 class="chart-title">Temperatura Geral</h2>
+            <h2 class="chart-title">Lista com a temperatura de geral de todos os aviões!</h2>
             <div class="btns-dash" id="btnAquario">
               <!-- O gráfico é chamado de acordo com o id (fk_motor) do banco  -->
             </div>
-            <div id="graficos"></div>
           </div>
+              <div id="graficos"></div>
+        </div>
         </div>
       </main>
       <!-- Main -->
@@ -127,6 +142,7 @@
 
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+  b_empresa.innerHTML = sessionStorage.EMPRESA;
 
   let proximaAtualizacao;
 
@@ -139,6 +155,8 @@
         `;
 
       document.getElementById("graficos").innerHTML += `
+         <div class="charts2">
+            <div class="charts-card2">
             <div id="grafico${item.id}" class="display-none">
                 <h3 class="tituloGraficos">
                     <span id="tituloAquario${item.id}">${item.descricao}</span>
@@ -149,6 +167,8 @@
                 <div class="label-captura">
                     <p id="avisoCaptura${item.id}" style="color: white"></p>
                 </div>
+            </div>
+            </div>
             </div>
         `;
 
@@ -170,6 +190,38 @@
       descricao +
       "</span>";
   }
+
+  function TotaldeAvioes(idUsuario) {
+        fetch(`/aquarios/TotaldeAvioes/${idUsuario}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na requisição de temperatura');
+                }
+                return response.json();
+            })
+            .then (data => {
+                if (data.total !== undefined) {
+                    notificacaoAtual(data.total);
+                } else {
+                    throw new Error("Erro ao receber quantidade de aviões");
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao atulizar o gráfico:", error);
+            })
+    }
+
+    function notificacaoAtual(total) {
+        const totalAvioes = total;
+
+        if (total > 0) {
+            totaldeavioes.innerHTML += `${totalAvioes}`;
+        } else {
+            totaldeavioes.innerHTML += `Nenhum avião cadastrado no sistema.`;
+        }
+    }
+
+    TotaldeAvioes();
 
   function exibirAquario(idAquario) {
     let todosOsGraficos = JSON.parse(sessionStorage.AQUARIOS);

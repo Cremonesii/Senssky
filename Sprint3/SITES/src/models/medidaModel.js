@@ -21,7 +21,7 @@ function buscarMedidasEmTempoReal(idAquario) {
                         DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
                         fk_motor 
                         FROM medida WHERE fk_motor = ${idAquario} 
-                    ORDER BY id DESC LIMIT 1`;
+                    ORDER BY id DESC LIMIT 10`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
