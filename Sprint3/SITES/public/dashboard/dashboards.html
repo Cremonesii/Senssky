@@ -56,8 +56,9 @@
       <aside id="sidebar">
         <div class="sidebar-title">
           <div class="sidebar-brand">
+            <img src="imgsdash/sensskyBranco.png" alt="">
             <span class="material-icons-outlined">home</span>
-            <span id="b_usuario">usuário</span>
+            <span>Olá </span><span id="b_usuario">usuário</span>
           </div>
           <span class="material-icons-outlined" onclick="closeSidebar()"
             >close</span
@@ -76,8 +77,8 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#">
-              <span class="material-icons-outlined">settings</span> Configuração
+            <a href="http://localhost:3340/">
+              <span class="material-icons-outlined">help</span> Ajuda
             </a>
           </li>
           <li class="sidebar-list-item">
@@ -98,7 +99,7 @@
         <div class="main-cards">
           <div class="card">
             <div class="card-inner">
-              <h3>Quantidadede aviões cadastrados nos sistema</h3>
+              <h3>Média de temperatura de todos os aviões:</h3>
               <span class="material-icons-outlined">inventory_2</span>
             </div>
             <h1 id="totaldeavioes"></h1>
@@ -166,7 +167,7 @@
                 <h3 class="tituloGraficos">
                     <span id="tituloAquario${item.id}">${item.descricao}</span>
                 </h3>
-                <div class="graph" style="width: 1000px">
+                <div class="graph" style="width: 750px;">
                     <canvas id="myChartCanvas${item.id}"></canvas>
                 </div>
                 <div class="label-captura">
