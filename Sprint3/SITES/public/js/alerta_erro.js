@@ -89,7 +89,7 @@ function transformarEmDiv({ idAquario, temp, grauDeAviso, grauDeAvisoCor }) {
     <div class="mensagem-alarme">
         <div class="informacao">
             <div class="${grauDeAvisoCor}">&#12644;</div> 
-            <h3><a href="dashboards.html" style="  text-decoration: none; color: white;   text-decoration: underline;">${descricao}</a> está ${grauDeAviso}!</h3>
+            <h3><a href="alertaAviao.html" style="  text-decoration: none; color: white;   text-decoration: underline;">${descricao}</a> está ${grauDeAviso}!</h3>
             <small>Temperatura capturada: ${temp}°C.</small>   
         </div>
         <div class="alarme-sino"></div>
