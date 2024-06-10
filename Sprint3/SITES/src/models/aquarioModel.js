@@ -16,18 +16,19 @@ function cadastrar(empresaId, descricao) {
   return database.executar(instrucaoSql);
 }
 
-function TotaldeAvioes(idUsuario) {
+function TotaldeAvioes(idAquario, empresaId) {
   var instrucaoSql = `
-    SELECT AVG(dht11_temperatura) AS MediaTemperatura
-    FROM motor 
-    JOIN medida ON motor.id = medida.fk_motor 
-    WHERE motor.fk_usuario = ${idUsuario}
+    SELECT AVG(medida.dht11_temperatura) AS MediaTemperatura
+    FROM motor
+    JOIN medida ON motor.id = medida.fk_motor
+    JOIN usuario ON motor.fk_usuario = usuario.id
+    JOIN empresa ON usuario.fk_empresa = empresa.id
+    WHERE motor.fk_usuario = ${idAquario} AND empresa.id = ${empresaId}
   `;
   
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
 }
-
 
 module.exports = {
   buscarAquariosPorEmpresa,

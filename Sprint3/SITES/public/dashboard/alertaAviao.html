@@ -1,178 +1,145 @@
 <!DOCTYPE html>
-<html lang="pt-br>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Dashboard</title>
+<html lang="en">
 
-    <!-- Montserrat Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Dashboard | ALERTA</title>
 
-    <!-- Material Icons -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-      rel="stylesheet"
-    />
-    <!-- CSS -->
-    <link rel="stylesheet" href="./../css/styles.css" />
+  <!-- Montserrat Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
 
-    <script src="../js/sessao.js"></script>
-    <script src="./../js/alerta.js"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
 
-    <!-- scripts do Chart.js - 2022-1 -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="./../css/styles.css" />
+  <link rel="shortcut icon" type="imagex/png" href="css/imagens/aviao.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <script src="../js/sessao.js"></script>
+  <script src="./../js/alerta_erro.js"></script>
 
-    <!--FONT AWESOME-->
-    <script
-      src="https://kit.fontawesome.com/9f7414eb10.js"
-      crossorigin="anonymous"
-    ></script>
+  <!-- scripts do Chart.js - 2022-1 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body onload="exibirAquariosDoUsuario()">
-    <div class="grid-container">
-      <!-- Header -->
-      <header class="header">
-        <div class="menu-icon" onclick="openSidebar()">
-          <span class="material-icons-outlined">menu</span>
+  <!--FONT AWESOME-->
+  <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div class="grid-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="menu-icon" onclick="openSidebar()">
+        <span class="material-icons-outlined">menu</span>
+      </div>
+      <div class="header-left">
+        <span class="material-icons-outlined">search</span>
+      </div>
+      <div class="header-right">
+        <span class="material-icons-outlined">notifications</span>
+        <span class="material-icons-outlined">email</span>
+        <span class="material-icons-outlined">account_circle</span>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="sidebar-title">
+        <div class="sidebar-brand">
+          <img src="imgsdash/sensskyBranco.png" alt="">
+          <span class="material-icons-outlined">home</span>
+          <span>Olá </span><span id="b_usuario">usuário</span>
         </div>
-        <div class="header-left">
-          <span class="material-icons-outlined">search</span>
-        </div>
-        <div class="header-right">
-          <span class="material-icons-outlined">notifications</span>
-          <span class="material-icons-outlined">email</span>
-          <span class="material-icons-outlined">account_circle</span>
-        </div>
-      </header>
-      <!-- Header -->
+        <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+      </div>
 
-      <!-- Sidebar -->
-      <aside id="sidebar">
-        <div class="sidebar-title">
-          <div class="sidebar-brand">
-            <img src="imgsdash/sensskyBranco.png" alt="">
-            <span class="material-icons-outlined">home</span>
-            <span>Olá </span><span id="b_usuario">usuário</span>
-          </div>
-          <span class="material-icons-outlined" onclick="closeSidebar()"
-            >close</span
-          >
-        </div>
+      <ul class="sidebar-list">
+        <li class="sidebar-list-item">
+          <a href="dashboards.html">
+            <span class="material-icons-outlined">dashboard</span> Dashboard
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="avioes.html">
+            <span class="material-icons-outlined">inventory_2</span> Aviões
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="http://localhost:3340/">
+            <span class="material-icons-outlined">help</span> Ajuda
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="#">
+            <span class="material-icons-outlined">settings</span> Configuração
+          </a>
+        </li>
+      </ul>
+    </aside>
+    <!-- End Sidebar -->
 
-        <ul class="sidebar-list">
-          <li class="sidebar-list-item">
-            <a href="dashboards.html">
-              <span class="material-icons-outlined">dashboard</span> Dashboard
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="avioes.html">
-              <span class="material-icons-outlined">inventory_2</span> Aviões
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="http://localhost:3340/">
-              <span class="material-icons-outlined">help</span> Ajuda
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="http://localhost:3340/">
-              <span class="material-icons-outlined">settings</span> Configuração
-            </a>
-          </li>
-        </ul>
-      </aside>
-      <!-- Sidebar -->
+    <!-- Main -->
+    <main class="main-container">
+      <div class="main-title">
+        <h2>AVIAO XXX</h2>
+      </div>
 
-      <!-- Main -->
-      <main class="main-container">
-        <div class="main-title">
-          <h2>Central de temperaturas gerais de cada avião da Empresa: <span id="b_empresa">empresa</span></h2>
-        </div>
-
-        <div class="main-cards">
-          <div class="card">
-            <div class="card-inner">
-              <h3>Média de temperatura de todos os aviões:</h3>
-              <span class="material-icons-outlined">inventory_2</span>
-            </div>
-            <h1 id="totaldeavioes"></h1>
-          </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <h3>Alertas</h3>
-              <span class="material-icons-outlined">notification_important</span>
-            </div>
-            <div id="alerta">Aviões que precisam de manutenção, vá na aba "Aviões"</div>
-          </div>
-          <div class="alinhamentolegenda">
-          <div class="row">
-            <div class="col">
-              <div class="card6">
-                <h2>Legenda:</h2>
-                <h4><b style="color: #429867;">Verde:</b> Temperatura ideal.</h4>
-                <h4><b style="color: #2b6166;">Azul:</b>  Temperatura abaixa.</h4>
-                <h4><b style="color: #ff3131;">Vermelho:</b>  Temperatura alta.</h4>
-                <ul id="activityList"></ul>
-              </div>
-            </div>
+    
+        <div class="card2">
+          <div class="card-inner">
+            <h3>Teperatura instável, tenha atenção com este avião!</h3>
+            <span class="material-icons-outlined">notification_important</span>
           </div>
         </div>
-        </div>
+    
 
-       
-
-        <div class="dividircard">
-        <div class="charts">
-          <div class="charts-card">
-            <h2 class="chart-title">Lista com a temperatura geral de todos os aviões!</h2>
-            <div class="btns-dash" id="btnAquario">
-              <!-- O gráfico é chamado de acordo com o id (fk_motor) do banco  -->
-            </div>
+      <div class="charts">
+        <div id="graficoaparecer" class="charts-card" style="display: block">
+          <div class="btns-dash" id="btnAquario">
+            <!-- O gráfico é chamado de acordo com o id (fk_motor) do banco  -->
           </div>
-              <div id="graficos"></div>
+          <div id="graficos"></div>
         </div>
-        </div>
-      </main>
-      <!-- Main -->
-    </div>
-  </body>
+      </div>
+    </main>
+    <!-- End Main -->
+  </div>
+</body>
+
 </html>
 
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-  b_empresa.innerHTML = sessionStorage.EMPRESA;
 
   let proximaAtualizacao;
 
-  function exibirAquariosDoUsuario() {
+  function getIdAquarioFromUrl() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            return urlParams.get('idAquario');
+        }
+
+  window.onload = exibirAquariosDoUsuario();
+
+  function exibirAquariosDoUsuario(idAquario) {
     var aquarios = JSON.parse(sessionStorage.AQUARIOS);
     aquarios.forEach((item) => {
       document.getElementById("btnAquario").innerHTML += `
         `;
 
       document.getElementById("graficos").innerHTML += `
-         <div class="charts2">
-            <div class="charts-card2">
             <div id="grafico${item.id}" class="display-none">
                 <h3 class="tituloGraficos">
                     <span id="tituloAquario${item.id}">${item.descricao}</span>
                 </h3>
-                <div class="graph" style="width: 750px;">
+                <div class="graph">
                     <canvas id="myChartCanvas${item.id}"></canvas>
                 </div>
-                <div class="label-captura">
-                    <p id="avisoCaptura${item.id}" style="color: white"></p>
-                </div>
-            </div>
-            </div>
             </div>
         `;
 
@@ -194,39 +161,6 @@
       descricao +
       "</span>";
   }
-
-  function TotaldeAvioes(idAquario, empresaId) {
-    fetch(`/aquarios/TotaldeAvioes/${idAquario}/${empresaId}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro na requisição de temperatura');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.length > 0) {
-                notificacaoAtual(data[0].MediaTemperatura);
-            } else {
-                notificacaoAtual(0);
-            }
-        })
-        .catch(error => {
-            console.error("Erro ao atualizar o gráfico:", error);
-        });
-}
-
-function notificacaoAtual(mediaTemperatura) {
-    const totaldeavioes = document.getElementById('totaldeavioes');
-
-    if (mediaTemperatura > 0) {
-        totaldeavioes.innerHTML += `${mediaTemperatura.toFixed(2)}`;
-    } else {
-        totaldeavioes.innerHTML += `Nenhum avião cadastrado no sistema.`;
-    }
-}
-
-
-TotaldeAvioes();
 
   function exibirAquario(idAquario) {
     let todosOsGraficos = JSON.parse(sessionStorage.AQUARIOS);
@@ -313,50 +247,35 @@ TotaldeAvioes();
 
     // Criando estrutura para plotar gráfico - dados
     let dados = {
-        labels: labels,
-        datasets: [
-            {
-                label: "Geral:",
-                data: [],
-                fill: false,
-                backgroundColor: "none",
-            },
-            {
-                label: "Temperatura",
-                data: [],
-                fill: false,
-                backgroundColor: [],
-            },
-        ],
+      labels: labels,
+      datasets: [
+        {
+          label: "Umidade",
+          data: [],
+          fill: false,
+          backgroundColor: "#ff6d00",
+        },
+        {
+          label: "Temperatura",
+          data: [],
+          fill: false,
+          backgroundColor: "#2962ff",
+        },
+      ],
     };
 
     console.log("----------------------------------------------");
     console.log(
-        'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
+      'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
     );
     console.log(resposta);
 
-    var limites = {
-        muito_quente: 100,
-        quente: 90,
-        ideal: 80,
-        frio: 75,
-        muito_frio: 70
-    };
-
-    for (let i = 0; i < resposta.length; i++) {
-        var registro = resposta[i];
-        labels.push(registro.momento_grafico);
-        dados.datasets[0].data.push(registro.umidade);
-        dados.datasets[1].data.push(registro.temperatura);
-
-        if (registro.temperatura >= limites.quente) {
-            dados.datasets[1].backgroundColor.push("red");
-        } else if (registro.temperatura >= limites.frio && registro.temperatura < limites.quente) {
-            dados.datasets[1].backgroundColor.push("#429867");
-        } else {
-            dados.datasets[1].backgroundColor.push("red");
-        }
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (i = 0; i < resposta.length; i++) {
+      var registro = resposta[i];
+      labels.push(registro.momento_grafico);
+      dados.datasets[0].data.push(registro.umidade);
+      dados.datasets[1].data.push(registro.temperatura);
     }
 
     console.log("----------------------------------------------");
@@ -369,18 +288,18 @@ TotaldeAvioes();
 
     // Criando estrutura para plotar gráfico - config
     const config = {
-        type: "bar",
-        data: dados,
+      type: "bar",
+      data: dados,
     };
 
     // Adicionando gráfico criado em div na tela
     let myChart = new Chart(
-        document.getElementById(`myChartCanvas${idAquario}`),
-        config
+      document.getElementById(`myChartCanvas${idAquario}`),
+      config
     );
-    setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-}
 
+    setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+  }
 
   // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
   // buscando a última medida inserida em tabela contendo as capturas,
@@ -457,4 +376,5 @@ TotaldeAvioes();
         );
       });
   }
+
 </script>
