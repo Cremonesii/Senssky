@@ -3,6 +3,8 @@
 * {
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
 }
 
 body {
@@ -12,16 +14,59 @@ body {
     /* ================== ESSAS ULTIMAS 4 LINHAS É PARA FAZER UMA ANIMAÇÃO DE GRADIENTE (MAIS DE UMA COR) ================== */
     transition: all 0.5s ease;
     background: #1d2634; /* */
+    background-size: 400% 400%;
+    animation: Animacao 10s ease infinite;
 }
 
-.header{
-display: flex;
-justify-content: center;
-width: 100%;
-height: 10%;
-margin: 0;
-padding: 0;
+
+header {
+    background: #fff;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    border-radius: 0 0 10px 10px;
+    margin: 0 auto;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+
 }
+
+header .logo {
+    width: 20%;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+nav .logo {
+    display: none;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li a {
+    color: #1d2634;
+    display: block;
+    margin: 0 2px;
+    font-weight: 600;
+    padding: 8px 18px;
+    transition: 0.2s;
+    border-radius: 30px;
+}
+nav ul li a:hover {
+    background: #1d2634;
+    color: #fff;
+}
+
+nav ul li a.ativo {
+    background: #1d2634;
+    color: #fff;
+}
+
 
 .header a {
     text-decoration: none;
@@ -70,6 +115,18 @@ padding: 0;
 .cor{
     color: #006DA4; 
 } */
+.containerheader {
+    margin: 0 auto;
+    display: flex;
+    background-position: center;
+    width: 100%;
+    height: 100px
+}
+
+.containerheader img {
+    width: 50%;
+    height: 100%;
+}
 
 .container{
     display: flex;
@@ -113,7 +170,7 @@ padding: 0;
     display: flex;
     justify-content: center;
     text-align: center;
-    background: #1d2634;
+    background-image: url("imagem/fundo.png");
     align-items: center;
     flex-direction: column;
     color: white;
@@ -128,7 +185,7 @@ padding: 0;
 }
 
 .corpo2 {
-    background: linear-gradient(#3f4d5c, #435668, #3f586d, #8093a7);
+    background: #1d2634;
     background-size: 400% 400%;
     animation: Animacao 10s ease infinite;
     font-family: "Poppins", sans-serif;
@@ -140,7 +197,7 @@ padding: 0;
     background-color: white;
     font-family: "Poppins", sans-serif;
     text-align: center;
-    padding: 2%;
+    padding: 5%;
 }
 
 .servicos {
@@ -183,10 +240,11 @@ padding: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #4b7eea;
+    background-color: #1d2634;
     font-family: "Poppins", sans-serif;
     text-align: center;
     padding: 1%;
+    height: 70vh;
 }
 
 .corpo4 h3 span {
@@ -227,6 +285,7 @@ padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 .imgfooter {
     width: 18vh;
@@ -247,4 +306,18 @@ padding: 0;
 
 .corpo5 a {
     text-decoration: none;
+}
+
+
+
+@keyframes Animacao {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
 }
