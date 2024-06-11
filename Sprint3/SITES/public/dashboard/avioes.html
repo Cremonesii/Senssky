@@ -130,6 +130,30 @@
 
   window.onload = exibirAquariosDoUsuario();
 
+  function redirecionarAlerta(idAquario) {
+    fetch(`/motor/TotaldeAvioes/${idAquario}`, { cache: "no-store" })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            // console.log(
+              // `Dados recebidos pela funcao TOTALAVIOES: ${JSON.stringify(
+              //   resposta
+              // )}`
+            // );
+            sessionStorage.AVIAO_SELECIONADO = idAquario;
+            resposta.reverse();
+            window.location = "/dashboard/alertaAviao.html";
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
+  }
   function exibirAquariosDoUsuario() {
     var aquarios = JSON.parse(sessionStorage.AQUARIOS);
     aquarios.forEach((item) => {

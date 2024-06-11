@@ -82,13 +82,14 @@ function exibirCards() {
     }
 }
 
+
 function transformarEmDiv({ idAquario, temp, grauDeAviso, grauDeAvisoCor }) {
     var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
     return `
     <div class="mensagem-alarme">
         <div class="informacao">
             <div class="${grauDeAvisoCor}">&#12644;</div> 
-            <h3><a href="alertaAviao.html?idAquario=${idAquario}" style="text-decoration: none; color: white; text-decoration: underline;">${descricao}</a> está ${grauDeAviso}!</h3>
+            <h3><button onclick="redirecionarAlerta(${idAquario})" style="text-decoration: none; color: white; text-decoration: underline;">${descricao}</button> está ${grauDeAviso}!</h3>
             <small>Temperatura capturada: ${temp}°C.</small>   
         </div>
         <div class="alarme-sino"></div>

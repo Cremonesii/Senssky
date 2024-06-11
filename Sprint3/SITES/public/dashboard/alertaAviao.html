@@ -1,116 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Dashboard | ALERTA</title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Dashboard | ALERTA</title>
+    <!-- Montserrat Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Montserrat Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
 
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="./../css/styles.css" />
+    <link rel="shortcut icon" type="imagex/png" href="css/imagens/aviao.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script src="../js/sessao.js"></script>
+    <script src="./../js/alerta_erro.js"></script>
 
-  <link rel="stylesheet" href="./../css/styles.css" />
-  <link rel="shortcut icon" type="imagex/png" href="css/imagens/aviao.png" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <script src="../js/sessao.js"></script>
-  <script src="./../js/alerta_erro.js"></script>
+    <!-- scripts do Chart.js - 2022-1 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- scripts do Chart.js - 2022-1 -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!--FONT AWESOME-->
+    <script
+      src="https://kit.fontawesome.com/9f7414eb10.js"
+      crossorigin="anonymous"
+    ></script>
 
-  <!--FONT AWESOME-->
-  <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
-
-<body>
-  <div class="grid-container">
-    <!-- Header -->
-    <header class="header">
-      <div class="menu-icon" onclick="openSidebar()">
-        <span class="material-icons-outlined">menu</span>
-      </div>
-      <div class="header-left">
-        <span class="material-icons-outlined">search</span>
-      </div>
-      <div class="header-right">
-        <span class="material-icons-outlined">notifications</span>
-        <span class="material-icons-outlined">email</span>
-        <span class="material-icons-outlined">account_circle</span>
-      </div>
-    </header>
-    <!-- End Header -->
-
-    <!-- Sidebar -->
-    <aside id="sidebar">
-      <div class="sidebar-title">
-        <div class="sidebar-brand">
-          <img src="imgsdash/sensskyBranco.png" alt="">
-          <span class="material-icons-outlined">home</span>
-          <span>Olá </span><span id="b_usuario">usuário</span>
+  <body onload="TotaldeAvioes(sessionStorage.AVIAO_SELECIONADO )">
+    <div class="grid-container">
+      <!-- Header -->
+      <header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+          <span class="material-icons-outlined">menu</span>
         </div>
-        <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
-      </div>
+        <div class="header-left">
+          <span class="material-icons-outlined">search</span>
+        </div>
+        <div class="header-right">
+          <span class="material-icons-outlined">notifications</span>
+          <span class="material-icons-outlined">email</span>
+          <span class="material-icons-outlined">account_circle</span>
+        </div>
+      </header>
+      <!-- End Header -->
 
-      <ul class="sidebar-list">
-        <li class="sidebar-list-item">
-          <a href="dashboards.html">
-            <span class="material-icons-outlined">dashboard</span> Dashboard
-          </a>
-        </li>
-        <li class="sidebar-list-item">
-          <a href="avioes.html">
-            <span class="material-icons-outlined">inventory_2</span> Aviões
-          </a>
-        </li>
-        <li class="sidebar-list-item">
-          <a href="http://localhost:3340/">
-            <span class="material-icons-outlined">help</span> Ajuda
-          </a>
-        </li>
-        <li class="sidebar-list-item">
-          <a href="#">
-            <span class="material-icons-outlined">settings</span> Configuração
-          </a>
-        </li>
-      </ul>
-    </aside>
-    <!-- End Sidebar -->
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <img src="imgsdash/sensskyBranco.png" alt="" />
+            <span class="material-icons-outlined">home</span>
+            <span>Olá </span><span id="b_usuario">usuário</span>
+          </div>
+          <span class="material-icons-outlined" onclick="closeSidebar()"
+            >close</span
+          >
+        </div>
 
-    <!-- Main -->
-    <main class="main-container">
-      <div class="main-title">
-        <h2>AVIAO XXX</h2>
-      </div>
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="dashboards.html">
+              <span class="material-icons-outlined">dashboard</span> Dashboard
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="avioes.html">
+              <span class="material-icons-outlined">inventory_2</span> Aviões
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="http://localhost:3340/">
+              <span class="material-icons-outlined">help</span> Ajuda
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#">
+              <span class="material-icons-outlined">settings</span> Configuração
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <!-- End Sidebar -->
 
-    
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-title">
+          <h2>AVIAO XXX</h2>
+        </div>
+
         <div class="card2">
           <div class="card-inner">
             <h3>Teperatura instável, tenha atenção com este avião!</h3>
             <span class="material-icons-outlined">notification_important</span>
           </div>
         </div>
-    
 
-      <div class="charts">
-        <div id="graficoaparecer" class="charts-card" style="display: block">
-          <div class="btns-dash" id="btnAquario">
-            <!-- O gráfico é chamado de acordo com o id (fk_motor) do banco  -->
+        <div class="charts">
+          <div id="graficoaparecer" class="charts-card" style="display: block">
+            <div class="btns-dash" id="btnAquario">
+              <!-- O gráfico é chamado de acordo com o id (fk_motor) do banco  -->
+            </div>
+            <div id="graficos"></div>
           </div>
-          <div id="graficos"></div>
         </div>
-      </div>
-    </main>
-    <!-- End Main -->
-  </div>
-</body>
-
+      </main>
+      <!-- End Main -->
+    </div>
+  </body>
 </html>
 
 <script>
@@ -119,32 +125,52 @@
   let proximaAtualizacao;
 
   function getIdAquarioFromUrl() {
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            return urlParams.get('idAquario');
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams.get("idAquario");
+  }
+  function TotaldeAvioes(idAquario) {
+    fetch(`/motor/TotaldeAvioes/${idAquario}`, { cache: "no-store" })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            // console.log(
+            // `Dados recebidos pela funcao TOTALAVIOES: ${JSON.stringify(
+            //   resposta
+            // )}`
+            // );
+            resposta.reverse();
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
         }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
+    // console.log(response);
+  }
 
-  window.onload = exibirAquariosDoUsuario();
+  window.onload = exibirAquariosDoUsuario(sessionStorage.AVIAO_SELECIONADO);
 
   function exibirAquariosDoUsuario(idAquario) {
-    var aquarios = JSON.parse(sessionStorage.AQUARIOS);
-    aquarios.forEach((item) => {
-      document.getElementById("btnAquario").innerHTML += `
+    document.getElementById("btnAquario").innerHTML += `
         `;
 
-      document.getElementById("graficos").innerHTML += `
-            <div id="grafico${item.id}" class="display-none">
+    document.getElementById("graficos").innerHTML += `
+            <div id="grafico${idAquario}" class="display-none">
                 <h3 class="tituloGraficos">
-                    <span id="tituloAquario${item.id}">${item.descricao}</span>
+                    <span id="tituloAquario${idAquario}">{item.descricao}</span>
                 </h3>
                 <div class="graph">
-                    <canvas id="myChartCanvas${item.id}"></canvas>
+                    <canvas id="myChartCanvas${idAquario}"></canvas>
                 </div>
             </div>
         `;
 
-      obterDadosGrafico(item.id);
-    });
+    obterDadosGrafico(idAquario);
 
     if (aquarios.length > 0) {
       exibirAquario(aquarios[0].id);
@@ -171,7 +197,7 @@
         let elementoAtual = document.getElementById(
           `grafico${todosOsGraficos[i].id}`
         );
-        if (elementoAtual.classList.contains("display-block")) {
+        if (elementoAtual.style.contains("display-block")) {
           elementoAtual.classList.remove("display-block");
         }
         elementoAtual.classList.add("display-none");
@@ -220,7 +246,7 @@
       .then(function (response) {
         if (response.ok) {
           response.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             resposta.reverse();
 
             plotarGrafico(resposta, idAquario);
@@ -240,7 +266,7 @@
   // Configura o gráfico (cores, tipo, etc), materializa-o na página e,
   // A função *plotarGrafico* também invoca a função *atualizarGrafico*
   function plotarGrafico(resposta, idAquario) {
-    console.log("iniciando plotagem do gráfico...");
+    // console.log("iniciando plotagem do gráfico...");
 
     // Criando estrutura para plotar gráfico - labels
     let labels = [];
@@ -264,11 +290,11 @@
       ],
     };
 
-    console.log("----------------------------------------------");
-    console.log(
-      'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
-    );
-    console.log(resposta);
+    // console.log("----------------------------------------------");
+    // console.log(
+    //   'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
+    // );
+    // console.log(resposta);
 
     // Inserindo valores recebidos em estrutura para plotar o gráfico
     for (i = 0; i < resposta.length; i++) {
@@ -278,13 +304,13 @@
       dados.datasets[1].data.push(registro.temperatura);
     }
 
-    console.log("----------------------------------------------");
-    console.log("O gráfico será plotado com os respectivos valores:");
-    console.log("Labels:");
-    console.log(labels);
-    console.log("Dados:");
-    console.log(dados.datasets);
-    console.log("----------------------------------------------");
+    // console.log("----------------------------------------------");
+    // console.log("O gráfico será plotado com os respectivos valores:");
+    // console.log("Labels:");
+    // console.log(labels);
+    // console.log("Dados:");
+    // console.log(dados.datasets);
+    // console.log("----------------------------------------------");
 
     // Criando estrutura para plotar gráfico - config
     const config = {
@@ -313,9 +339,9 @@
           response.json().then(function (novoRegistro) {
             obterdados(idAquario);
             // alertar(novoRegistro, idAquario);
-            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-            console.log(`Dados atuais do gráfico:`);
-            console.log(dados);
+            // console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+            // console.log(`Dados atuais do gráfico:`);
+            // console.log(dados);
 
             let avisoCaptura = document.getElementById(
               `avisoCaptura${idAquario}`
@@ -326,21 +352,21 @@
               novoRegistro[0].momento_grafico ==
               dados.labels[dados.labels.length - 1]
             ) {
-              console.log(
-                "---------------------------------------------------------------"
-              );
-              console.log(
-                "Como não há dados novos para captura, o gráfico não atualizará."
-              );
+              // console.log(
+              // "---------------------------------------------------------------"
+              // );
+              // console.log(
+              //   "Como não há dados novos para captura, o gráfico não atualizará."
+              // );
               avisoCaptura.innerHTML =
                 "<i class='fa-solid fa-triangle-exclamation'></i> O gráfico não atualizará pós não está capturando nenhum dado.";
-              console.log("Horário do novo dado capturado:");
-              console.log(novoRegistro[0].momento_grafico);
-              console.log("Horário do último dado capturado:");
-              console.log(dados.labels[dados.labels.length - 1]);
-              console.log(
-                "---------------------------------------------------------------"
-              );
+              // console.log("Horário do novo dado capturado:");
+              // console.log(novoRegistro[0].momento_grafico);
+              // console.log("Horário do último dado capturado:");
+              // console.log(dados.labels[dados.labels.length - 1]);
+              // console.log(
+              //   "---------------------------------------------------------------"
+              // );
             } else {
               // tirando e colocando valores no gráfico
               dados.labels.shift(); // apagar o primeiro
@@ -376,5 +402,4 @@
         );
       });
   }
-
 </script>
