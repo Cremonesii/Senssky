@@ -11,9 +11,7 @@ body {
     font-family: "Poppins", sans-serif;
     /* ================== ESSAS ULTIMAS 4 LINHAS É PARA FAZER UMA ANIMAÇÃO DE GRADIENTE (MAIS DE UMA COR) ================== */
     transition: all 0.5s ease;
-    background: lin ear-gradient(-45deg, #032030, #022B42, #003554, #004D74, #006494, #006DA4); /* */
-    background-size: 400% 400%;
-    animation: Animacao 10s ease infinite;
+    background: #1d2634; /* */
 }
 
 .header{
@@ -115,7 +113,7 @@ padding: 0;
     display: flex;
     justify-content: center;
     text-align: center;
-    background-image: url("imagem/fundo.png");
+    background: #1d2634;
     align-items: center;
     flex-direction: column;
     color: white;
@@ -130,7 +128,7 @@ padding: 0;
 }
 
 .corpo2 {
-    background: linear-gradient(-45deg, #2c67e3, #4b7eea, #2e88ea, #3a56b2, #0f95a0);
+    background: linear-gradient(#3f4d5c, #435668, #3f586d, #8093a7);
     background-size: 400% 400%;
     animation: Animacao 10s ease infinite;
     font-family: "Poppins", sans-serif;
@@ -142,7 +140,7 @@ padding: 0;
     background-color: white;
     font-family: "Poppins", sans-serif;
     text-align: center;
-    padding: 5%;
+    padding: 2%;
 }
 
 .servicos {
@@ -249,18 +247,4 @@ padding: 0;
 
 .corpo5 a {
     text-decoration: none;
-}
-
-
-
-@keyframes Animacao {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0% 50%
-    }
 }
