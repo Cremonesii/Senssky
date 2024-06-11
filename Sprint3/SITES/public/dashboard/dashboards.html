@@ -77,7 +77,7 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="http://10.18.32.84:3340/">
+            <a href="http://10.18.32.84:3340">
               <span class="material-icons-outlined">help</span> Ajuda
             </a>
           </li>
@@ -338,8 +338,8 @@ TotaldeAvioes();
 
     var limites = {
         muito_quente: 100,
-        quente: 90,
-        ideal: 80,
+        quente: 30,
+        ideal: 20,
         frio: 75,
         muito_frio: 70
     };
@@ -352,7 +352,7 @@ TotaldeAvioes();
 
         if (registro.temperatura >= limites.quente) {
             dados.datasets[1].backgroundColor.push("red");
-        } else if (registro.temperatura >= limites.frio && registro.temperatura < limites.quente) {
+        } else if (registro.temperatura >= limites.ideal && registro.temperatura < limites.quente) {
             dados.datasets[1].backgroundColor.push("#429867");
         } else {
             dados.datasets[1].backgroundColor.push("red");
