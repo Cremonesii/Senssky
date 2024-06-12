@@ -92,9 +92,8 @@ function TemperaturaMaxMin(req, res) {
 
 function QuantidadeAVioesAlerta(req, res) {
   const idAquario = req.params.idAquario;
-  const empresaId = req.params.empresaId;
 
-  motorModel.QuantidadeAVioesAlerta(idAquario, empresaId).then((resultado) => {
+  motorModel.QuantidadeAVioesAlerta(idAquario).then((resultado) => {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
