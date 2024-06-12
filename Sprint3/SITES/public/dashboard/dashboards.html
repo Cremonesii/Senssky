@@ -238,7 +238,7 @@ function MediaAvioes(fkEmpresa) {
 
 function exibirMediaTemperatura(MediaTemperatura) {
     const divMediaTemperatura = document.getElementById('totaldeavioes2');
-    divMediaTemperatura.innerHTML += MediaTemperatura + ` ºC. Temperatura média geral de todos os aviões.`;
+    divMediaTemperatura.innerHTML = MediaTemperatura + ` ºC. Temperatura média geral de todos os aviões.`;
 }
 
  
@@ -364,7 +364,7 @@ function exibirMediaTemperatura(MediaTemperatura) {
             dados.datasets[1].backgroundColor.push("red");
         } else if (registro.temperatura >= limites.ideal && registro.temperatura < limites.quente) {
             dados.datasets[1].backgroundColor.push("#429867");
-        } else {
+        } else if (registro.temperatura < limites.ideal) {
             dados.datasets[1].backgroundColor.push("#36a0aa");
         }
     }
