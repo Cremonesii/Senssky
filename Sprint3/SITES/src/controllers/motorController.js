@@ -59,8 +59,58 @@ function TotaldeAvioes(req, res) {
   });
 }
 
+function MediaAvioes(req, res) {
+  let fkEmpresa = req.params.fkEmpresa;
+
+  motorModel.MediaAvioes(fkEmpresa)
+      .then((resultado) => {
+          if (resultado.length > 0) {
+              res.status(200).json(resultado);
+          } else {
+              res.status(204).json([]);
+          }
+      })
+      .catch(function (erro) {
+          console.log("Houve um erro ao buscar os aviões: ", erro.sqlMessage);
+          res.status(500).json(erro.sqlMessage);
+      });
+}
+
+function TemperaturaMaxMin(req, res) {
+  const idAquario = req.params.idAquario;
+  motorModel.TemperaturaMaxMin(idAquario).then((resultado) => {
+    if (resultado.length > 0) {
+      res.status(200).json(resultado);
+    } else {
+      res.status(204).json([]);
+    }
+  }).catch(function (erro) {
+    console.log("Houve um erro ao buscar os aviões: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
+function QuantidadeAVioesAlerta(req, res) {
+  const idAquario = req.params.idAquario;
+  const empresaId = req.params.empresaId;
+
+  motorModel.QuantidadeAVioesAlerta(idAquario, empresaId).then((resultado) => {
+    if (resultado.length > 0) {
+      res.status(200).json(resultado);
+    } else {
+      res.status(204).json([]);
+    }
+  }).catch(function (erro) {
+    console.log("Houve um erro ao buscar os aviões: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
 module.exports = {
   buscarAquariosPorEmpresa,
   cadastrar,
-  TotaldeAvioes
+  TotaldeAvioes,
+  MediaAvioes,
+  TemperaturaMaxMin,
+  QuantidadeAVioesAlerta
 }

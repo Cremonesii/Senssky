@@ -422,3 +422,8 @@ canvas {
   margin-bottom: 100px;
   cursor: pointer;
 }
+
+#hoverbutao:hover{
+  transform: scale(1.2em);
+  transition: 0.5s;
+}

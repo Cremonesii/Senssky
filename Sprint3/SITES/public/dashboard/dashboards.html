@@ -93,7 +93,7 @@
       <!-- Main -->
       <main class="main-container">
         <div class="main-title">
-          <h2>Central de temperaturas gerais de cada avião da Empresa: <span id="b_empresa">empresa</span></h2>
+          <h2>Central de temperaturas gerais de cada avião cadastrado no nosso sistema</h2>
         </div>
 
         <div class="main-cards">
@@ -102,7 +102,7 @@
               <h3>Média de temperatura de todos os aviões:</h3>
               <span class="material-icons-outlined">inventory_2</span>
             </div>
-            <h1 id="totaldeavioes"></h1>
+          <h2 id="totaldeavioes2"></h2>
           </div>
 
           <div class="card">
@@ -118,8 +118,8 @@
               <div class="card6">
                 <h2>Legenda:</h2>
                 <h4><b style="color: #429867;">Verde:</b> Temperatura ideal.</h4>
-                <h4><b style="color: #2b6166;">Azul:</b>  Temperatura abaixa.</h4>
-                <h4><b style="color: #ff3131;">Vermelho:</b>  Temperatura alta.</h4>
+                <h4><b style="color: #36a0aa;">Azul:</b>  Temperatura abaixa.</h4>
+                <h4><b style="color: #b91e1e;">Vermelho:</b>  Temperatura alta.</h4>
                 <ul id="activityList"></ul>
               </div>
             </div>
@@ -148,16 +148,13 @@
 
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-  b_empresa.innerHTML = sessionStorage.EMPRESA;
+
 
   let proximaAtualizacao;
 
   function exibirAquariosDoUsuario() {
     var aquarios = JSON.parse(sessionStorage.AQUARIOS);
     aquarios.forEach((item) => {
-      document.getElementById("btnAquario").innerHTML += `
-        `;
-
       document.getElementById("graficos").innerHTML += `
          <div class="charts2">
             <div class="charts-card2">
@@ -175,8 +172,8 @@
             </div>
             </div>
         `;
-
       obterDadosGrafico(item.id);
+      MediaAvioes(sessionStorage.FK_EMPRESA)
     });
 
     if (aquarios.length > 0) {
@@ -215,18 +212,36 @@
         });
 }
 
-function notificacaoAtual(mediaTemperatura) {
-    const totaldeavioes = document.getElementById('totaldeavioes');
+function MediaAvioes(fkEmpresa) {
 
-    if (mediaTemperatura > 0) {
-        totaldeavioes.innerHTML += `${mediaTemperatura.toFixed(2)}`;
-    } else {
-        totaldeavioes.innerHTML += `Nenhum avião cadastrado no sistema.`;
-    }
+  console.log(fkEmpresa)
+
+    console.log('Iniciando fetch para MediaAvioes');
+    fetch(`/motor/MediaAvioes/${fkEmpresa}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro na requisição de temperatura');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.length > 0) {
+                exibirMediaTemperatura(data[0].MediaTemperatura);
+            } else {
+                exibirMediaTemperatura('Nenhum avião cadastrado no sistema.');
+            }
+        })
+        .catch(error => {
+            console.error("Erro ao atualizar o gráfico:", error);
+        });
 }
 
+function exibirMediaTemperatura(MediaTemperatura) {
+    const divMediaTemperatura = document.getElementById('totaldeavioes2');
+    divMediaTemperatura.innerHTML += MediaTemperatura + ` ºC. Temperatura média geral de todos os aviões.`;
+}
 
-TotaldeAvioes();
+ 
 
   function exibirAquario(idAquario) {
     let todosOsGraficos = JSON.parse(sessionStorage.AQUARIOS);
@@ -246,10 +261,10 @@ TotaldeAvioes();
         let btnAtual = document.getElementById(
           `btnAquario${todosOsGraficos[i].id}`
         );
-        if (btnAtual.classList.contains("btn-pink")) {
-          btnAtual.classList.remove("btn-pink");
-        }
-        btnAtual.classList.add("btn-white");
+        // if (btnAtual.classList.contains("btn-pink")) {
+        //   btnAtual.classList.remove("btn-pink");
+        // }
+        // btnAtual.classList.add("btn-white");
       }
     }
 
@@ -259,9 +274,9 @@ TotaldeAvioes();
     graficoExibir.classList.add("display-block");
 
     // alterando estilo do botão
-    let btnExibir = document.getElementById(`btnAquario${idAquario}`);
-    btnExibir.classList.remove("btn-white");
-    btnExibir.classList.add("btn-pink");
+    // let btnExibir = document.getElementById(`btnAquario${idAquario}`);
+    // btnExibir.classList.remove("btn-white");
+    // btnExibir.classList.add("btn-pink");
   }
 
   // O gráfico é construído com três funções:
@@ -286,7 +301,7 @@ TotaldeAvioes();
       .then(function (response) {
         if (response.ok) {
           response.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             resposta.reverse();
 
             plotarGrafico(resposta, idAquario);
@@ -330,11 +345,6 @@ TotaldeAvioes();
         ],
     };
 
-    console.log("----------------------------------------------");
-    console.log(
-        'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
-    );
-    console.log(resposta);
 
     var limites = {
         muito_quente: 100,
@@ -355,18 +365,9 @@ TotaldeAvioes();
         } else if (registro.temperatura >= limites.ideal && registro.temperatura < limites.quente) {
             dados.datasets[1].backgroundColor.push("#429867");
         } else {
-            dados.datasets[1].backgroundColor.push("red");
+            dados.datasets[1].backgroundColor.push("#36a0aa");
         }
     }
-
-    console.log("----------------------------------------------");
-    console.log("O gráfico será plotado com os respectivos valores:");
-    console.log("Labels:");
-    console.log(labels);
-    console.log("Dados:");
-    console.log(dados.datasets);
-    console.log("----------------------------------------------");
-
     // Criando estrutura para plotar gráfico - config
     const config = {
         type: "bar",
@@ -394,9 +395,7 @@ TotaldeAvioes();
           response.json().then(function (novoRegistro) {
             obterdados(idAquario);
             // alertar(novoRegistro, idAquario);
-            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-            console.log(`Dados atuais do gráfico:`);
-            console.log(dados);
+
 
             let avisoCaptura = document.getElementById(
               `avisoCaptura${idAquario}`
@@ -407,21 +406,9 @@ TotaldeAvioes();
               novoRegistro[0].momento_grafico ==
               dados.labels[dados.labels.length - 1]
             ) {
-              console.log(
-                "---------------------------------------------------------------"
-              );
-              console.log(
-                "Como não há dados novos para captura, o gráfico não atualizará."
-              );
               avisoCaptura.innerHTML =
                 "<i class='fa-solid fa-triangle-exclamation'></i> O gráfico não atualizará pós não está capturando nenhum dado.";
-              console.log("Horário do novo dado capturado:");
-              console.log(novoRegistro[0].momento_grafico);
-              console.log("Horário do último dado capturado:");
-              console.log(dados.labels[dados.labels.length - 1]);
-              console.log(
-                "---------------------------------------------------------------"
-              );
+          
             } else {
               // tirando e colocando valores no gráfico
               dados.labels.shift(); // apagar o primeiro

@@ -250,8 +250,24 @@ body {
 .charts2 {
   display: flex;
   margin-top: 60px;
-  width: 90%;
   height: 100%;
+}
+
+.texto-chart{
+  height: 250px;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #263043;
+  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
+.card-sug{
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .charts-card2 {
@@ -264,6 +280,17 @@ body {
   box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
 }
 
+.charts-card3 {
+  background-color: #263043;
+  margin-bottom: 20px;
+  padding: 25px;
+  box-sizing: border-box;
+  -webkit-column-break-inside: avoid;
+  border-radius: 5px;
+  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
+
+
 .chart-title {
   display: flex;
   align-items: center;
@@ -275,6 +302,21 @@ body {
   justify-content: space-between;
   align-items: center;
   grid-template-columns: repeat(2, 1fr);
+}
+
+#graficos2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alinhargraficouno{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* ---------- MEDIA QUERIES ---------- */

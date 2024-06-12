@@ -21,7 +21,7 @@
     <link rel="shortcut icon" type="imagex/png" href="css/imagens/aviao.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <script src="../js/sessao.js"></script>
-    <script src="./../js/alerta_erro.js"></script>
+   
 
     <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
 
-  <body onload="TotaldeAvioes(sessionStorage.AVIAO_SELECIONADO )">
+  <body onload="TotaldeAvioes(sessionStorage.AVIAO_SELECIONADO)">
     <div class="grid-container">
       <!-- Header -->
       <header class="header">
@@ -95,7 +95,6 @@
       <!-- Main -->
       <main class="main-container">
         <div class="main-title">
-          <h2>AVIAO XXX</h2>
         </div>
 
         <div class="card2">
@@ -106,13 +105,15 @@
         </div>
 
         <div class="charts">
-          <div id="graficoaparecer" class="charts-card" style="display: block">
+          <div id="graficoaparecer" class="charts-card3" style="display: block">
             <div class="btns-dash" id="btnAquario">
               <!-- O gráfico é chamado de acordo com o id (fk_motor) do banco  -->
             </div>
-            <div id="graficos"></div>
+            <div id="graficos2"></div>
+
           </div>
         </div>
+      
       </main>
       <!-- End Main -->
     </div>
@@ -159,18 +160,39 @@
     document.getElementById("btnAquario").innerHTML += `
         `;
 
-    document.getElementById("graficos").innerHTML += `
+    document.getElementById("graficos2").innerHTML += `
+     <div class="charts2">
+            <div class="charts-card3">
+      <div class="alinhargraficouno">
+        
             <div id="grafico${idAquario}" class="display-none">
                 <h3 class="tituloGraficos">
                     <span id="tituloAquario${idAquario}">{item.descricao}</span>
                 </h3>
-                <div class="graph">
+                <div class="graph" style="width: 1000px;"> 
                     <canvas id="myChartCanvas${idAquario}"></canvas>
                 </div>
             </div>
+        </div>
+        </div>
+          <div class="card-sug">
+        <div class="texto-chart">
+         <div id="max">Temperatura Máxima atingida pelo motor: </div>
+          <div id="min">Temperatura Mínima atingida pelo motor: </div>
+          </div>
+             <div class="texto-chart">
+         <div id="max">Sugestões de Mudanças</div>
+          <div id="min">-jnfsifiashfisfhish</div>
+          </div>
+          </div>
+        </div>
+        
+
         `;
 
     obterDadosGrafico(idAquario);
+    TemperaturaMaxMin(idAquario)   
+
 
     if (aquarios.length > 0) {
       exibirAquario(aquarios[0].id);
@@ -262,70 +284,105 @@
       });
   }
 
+  function TemperaturaMaxMin(idAquario) {
+
+  console.log('Iniciando fetch para Max e min');
+  fetch(`/motor/TemperaturaMaxMin/${idAquario}`)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Erro na requisição de temperatura');
+          }
+          return response.json();
+      })
+      .then(data => {
+          if (data.length > 0) {
+              exibirMediaTemperatura(data[0].Max);
+              exibirMin(data[0].Min);
+
+          } else {
+              exibirMediaTemperatura('Nenhum avião cadastrado no sistema.');
+          }
+      })
+      .catch(error => {
+          console.error("Erro ao atualizar o gráfico:", error);
+      });
+}
+
+function exibirMediaTemperatura(Max) {
+  const maximoeminimo = document.getElementById('max');
+  maximoeminimo.innerHTML += Max;
+}
+
+function exibirMin(Min) {
+  const maximoeminimo2 = document.getElementById('min');
+  maximoeminimo2.innerHTML += Min;
+}
+
+
   // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
   // Configura o gráfico (cores, tipo, etc), materializa-o na página e,
   // A função *plotarGrafico* também invoca a função *atualizarGrafico*
   function plotarGrafico(resposta, idAquario) {
-    // console.log("iniciando plotagem do gráfico...");
+    console.log("iniciando plotagem do gráfico...");
 
     // Criando estrutura para plotar gráfico - labels
     let labels = [];
 
     // Criando estrutura para plotar gráfico - dados
     let dados = {
-      labels: labels,
-      datasets: [
-        {
-          label: "Umidade",
-          data: [],
-          fill: false,
-          backgroundColor: "#ff6d00",
-        },
-        {
-          label: "Temperatura",
-          data: [],
-          fill: false,
-          backgroundColor: "#2962ff",
-        },
-      ],
+        labels: labels,
+        datasets: [
+            {
+                label: "Geral:",
+                data: [],
+                fill: false,
+                backgroundColor: "none",
+            },
+            {
+                label: "Temperatura",
+                data: [],
+                fill: false,
+                backgroundColor: [],
+            },
+        ],
     };
 
-    // console.log("----------------------------------------------");
-    // console.log(
-    //   'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
-    // );
-    // console.log(resposta);
 
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    for (i = 0; i < resposta.length; i++) {
-      var registro = resposta[i];
-      labels.push(registro.momento_grafico);
-      dados.datasets[0].data.push(registro.umidade);
-      dados.datasets[1].data.push(registro.temperatura);
+    var limites = {
+        muito_quente: 100,
+        quente: 90,
+        ideal: 80,
+        frio: 75,
+        muito_frio: 70
+    };
+
+    for (let i = 0; i < resposta.length; i++) {
+        var registro = resposta[i];
+        labels.push(registro.momento_grafico);
+        dados.datasets[0].data.push(registro.umidade);
+        dados.datasets[1].data.push(registro.temperatura);
+
+        if (registro.temperatura >= limites.quente) {
+            dados.datasets[1].backgroundColor.push("#b91e1e");
+        } else if (registro.temperatura >= limites.ideal && registro.temperatura < limites.quente) {
+            dados.datasets[1].backgroundColor.push("#429867");
+        } else if(registro.temperatura <= limites.frio) {
+            dados.datasets[1].backgroundColor.push("#36a0aa");
+        }
     }
-
-    // console.log("----------------------------------------------");
-    // console.log("O gráfico será plotado com os respectivos valores:");
-    // console.log("Labels:");
-    // console.log(labels);
-    // console.log("Dados:");
-    // console.log(dados.datasets);
-    // console.log("----------------------------------------------");
-
     // Criando estrutura para plotar gráfico - config
     const config = {
-      type: "bar",
-      data: dados,
+        type: "bar",
+        data: dados,
     };
 
     // Adicionando gráfico criado em div na tela
     let myChart = new Chart(
-      document.getElementById(`myChartCanvas${idAquario}`),
-      config
+        document.getElementById(`myChartCanvas${idAquario}`),
+        config
     );
-
     setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-  }
+}
 
   // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
   // buscando a última medida inserida em tabela contendo as capturas,
