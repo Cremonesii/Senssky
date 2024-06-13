@@ -21,7 +21,6 @@
     <link rel="shortcut icon" type="imagex/png" href="css/imagens/aviao.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <script src="../js/sessao.js"></script>
-   
 
     <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -75,7 +74,7 @@
           </li>
           <li class="sidebar-list-item">
             <a href="avioes.html">
-              <span class="material-icons-outlined">inventory_2</span> Aviões
+              <span class="material-icons-outlined">flight</span> Aviões
             </a>
           </li>
           <li class="sidebar-list-item">
@@ -94,8 +93,7 @@
 
       <!-- Main -->
       <main class="main-container">
-        <div class="main-title">
-        </div>
+        <div class="main-title"></div>
 
         <div class="card2">
           <div class="card-inner">
@@ -110,10 +108,8 @@
               <!-- O gráfico é chamado de acordo com o id (fk_motor) do banco  -->
             </div>
             <div id="graficos2"></div>
-
           </div>
         </div>
-      
       </main>
       <!-- End Main -->
     </div>
@@ -181,8 +177,17 @@
           <div id="min">Temperatura Mínima atingida pelo motor: </div>
           </div>
              <div class="texto-chart">
-         <div id="max">Sugestões de Mudanças</div>
-          <div id="min">-jnfsifiashfisfhish</div>
+         <div id="max"><b>Sugestões de Mudanças</b></div>
+          <div id="min">
+            <p>
+          <b>Verifique a Conexão</b>: Desconecte o sensor e inspecione as conexões para garantir que não há fios soltos ou em curto.
+          <br>
+          <br>
+          <b>Teste o Sensor</b>: Substitua o sensor queimado por um novo ou por um sensor que você sabe que está funcionando. Conecte-o ao Arduino e veja se o problema persiste.
+          <br>
+          <br>
+          <b>Verifique a Fonte de Alimentação</b>: Certifique-se de que a fonte de alimentação está fornecendo a voltagem correta e não possui flutuações que possam danificar o sensor.</div>
+          </p>
           </div>
           </div>
         </div>
@@ -191,8 +196,7 @@
         `;
 
     obterDadosGrafico(idAquario);
-    TemperaturaMaxMin(idAquario)   
-
+    TemperaturaMaxMin(idAquario);
 
     if (aquarios.length > 0) {
       exibirAquario(aquarios[0].id);
@@ -285,39 +289,36 @@
   }
 
   function TemperaturaMaxMin(idAquario) {
-
-  console.log('Iniciando fetch para Max e min');
-  fetch(`/motor/TemperaturaMaxMin/${idAquario}`)
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Erro na requisição de temperatura');
-          }
-          return response.json();
+    console.log("Iniciando fetch para Max e min");
+    fetch(`/motor/TemperaturaMaxMin/${idAquario}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erro na requisição de temperatura");
+        }
+        return response.json();
       })
-      .then(data => {
-          if (data.length > 0) {
-              exibirMediaTemperatura(data[0].Max);
-              exibirMin(data[0].Min);
-
-          } else {
-              exibirMediaTemperatura('Nenhum avião cadastrado no sistema.');
-          }
+      .then((data) => {
+        if (data.length > 0) {
+          exibirMediaTemperatura(data[0].Max);
+          exibirMin(data[0].Min);
+        } else {
+          exibirMediaTemperatura("Nenhum avião cadastrado no sistema.");
+        }
       })
-      .catch(error => {
-          console.error("Erro ao atualizar o gráfico:", error);
+      .catch((error) => {
+        console.error("Erro ao atualizar o gráfico:", error);
       });
-}
+  }
 
-function exibirMediaTemperatura(Max) {
-  const maximoeminimo = document.getElementById('max');
-  maximoeminimo.innerHTML += Max;
-}
+  function exibirMediaTemperatura(Max) {
+    const maximoeminimo = document.getElementById("max");
+    maximoeminimo.innerHTML += Max;
+  }
 
-function exibirMin(Min) {
-  const maximoeminimo2 = document.getElementById('min');
-  maximoeminimo2.innerHTML += Min;
-}
-
+  function exibirMin(Min) {
+    const maximoeminimo2 = document.getElementById("min");
+    maximoeminimo2.innerHTML += Min;
+  }
 
   // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
   // Configura o gráfico (cores, tipo, etc), materializa-o na página e,
@@ -330,59 +331,61 @@ function exibirMin(Min) {
 
     // Criando estrutura para plotar gráfico - dados
     let dados = {
-        labels: labels,
-        datasets: [
-            {
-                label: "Geral:",
-                data: [],
-                fill: false,
-                backgroundColor: "none",
-            },
-            {
-                label: "Temperatura",
-                data: [],
-                fill: false,
-                backgroundColor: [],
-            },
-        ],
+      labels: labels,
+      datasets: [
+        {
+          label: "Geral:",
+          data: [],
+          fill: false,
+          backgroundColor: "none",
+        },
+        {
+          label: "Temperatura",
+          data: [],
+          fill: false,
+          backgroundColor: [],
+        },
+      ],
     };
 
-
     var limites = {
-        muito_quente: 100,
-        quente: 90,
-        ideal: 80,
-        frio: 75,
-        muito_frio: 70
+      muito_quente: 100,
+      quente: 90,
+      ideal: 80,
+      frio: 75,
+      muito_frio: 70,
     };
 
     for (let i = 0; i < resposta.length; i++) {
-        var registro = resposta[i];
-        labels.push(registro.momento_grafico);
-        dados.datasets[0].data.push(registro.umidade);
-        dados.datasets[1].data.push(registro.temperatura);
+      var registro = resposta[i];
+      labels.push(registro.momento_grafico);
+      dados.datasets[0].data.push(registro.umidade);
+      dados.datasets[1].data.push(registro.temperatura);
 
-        if (registro.temperatura >= limites.quente) {
-            dados.datasets[1].backgroundColor.push("#b91e1e");
-        } else if (registro.temperatura >= limites.ideal && registro.temperatura < limites.quente) {
-            dados.datasets[1].backgroundColor.push("#429867");
-        } else if(registro.temperatura <= limites.frio) {
-            dados.datasets[1].backgroundColor.push("#36a0aa");
-        }
+      if (registro.temperatura >= limites.quente) {
+        dados.datasets[1].backgroundColor.push("#b91e1e");
+      } else if (
+        registro.temperatura >= limites.ideal &&
+        registro.temperatura < limites.quente
+      ) {
+        dados.datasets[1].backgroundColor.push("#429867");
+      } else if (registro.temperatura <= limites.frio) {
+        dados.datasets[1].backgroundColor.push("#36a0aa");
+      }
     }
     // Criando estrutura para plotar gráfico - config
     const config = {
-        type: "bar",
-        data: dados,
+      type: "bar",
+      data: dados,
     };
 
     // Adicionando gráfico criado em div na tela
     let myChart = new Chart(
-        document.getElementById(`myChartCanvas${idAquario}`),
-        config
+      document.getElementById(`myChartCanvas${idAquario}`),
+      config
     );
     setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-}
+  }
 
   // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
   // buscando a última medida inserida em tabela contendo as capturas,
