@@ -81,11 +81,6 @@
               <span class="material-icons-outlined">help</span> Ajuda
             </a>
           </li>
-          <li class="sidebar-list-item">
-            <a href="http://10.18.32.84:3340/">
-              <span class="material-icons-outlined">settings</span> Configuração
-            </a>
-          </li>
         </ul>
       </aside>
       <!-- Sidebar -->
@@ -419,29 +414,6 @@ function exibirMediaTemperatura(MediaTemperatura) {
 
               dados.datasets[1].data.shift(); // apagar o primeiro de temperatura
               dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-                    var limites = {
-              muito_quente: 100,
-              quente: 90,
-              ideal: 80,
-              frio: 75,
-              muito_frio: 70
-          };
-
-          for (let i = 0; i < resposta.length; i++) {
-              var registro = resposta[i];
-              labels.push(registro.momento_grafico);
-              dados.datasets[0].data.push(registro.umidade);
-              dados.datasets[1].data.push(registro.temperatura);
-
-              if (registro.temperatura >= limites.quente) {
-                  dados.datasets[1].backgroundColor.push("red");
-              } else if (registro.temperatura >= limites.ideal && registro.temperatura < limites.quente) {
-                  dados.datasets[1].backgroundColor.push("#429867");
-              } else if (registro.temperatura < limites.ideal) {
-                  dados.datasets[1].backgroundColor.push("#36a0aa");
-              }
-          }
 
               myChart.update();
             }
